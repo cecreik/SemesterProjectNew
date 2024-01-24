@@ -21,7 +21,7 @@ USER_API.post('/', (req, res, next) => {
     // This is using javascript object destructuring.
     // Recomend reading up https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#syntax
     // https://www.freecodecamp.org/news/javascript-object-destructuring-spread-operator-rest-parameter/
-    const { name, email, password } = req.body;
+    const [name, email, password ] = [];
 
     if (name != "" && email != "" && password != "") {
         const user = new User();

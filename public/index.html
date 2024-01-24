@@ -4,12 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My app</title>
+    <title>TravelTracker</title>
 </head>
 
 
 <body>
-    <h1>Hello Class</h1>
+    <h1>Hold oversikt over landene du har besøkt!</h1>
+
+    <label for="countryInput">Legg til land:</label>
+    <input type="text" id="countryInput" placeholder="Skriv inn land">
+
+    <button onclick="leggTilLand()">Legg til</button>
+
+    <ul id="countryList"></ul>
+
+    <p id="visitedCount">Du har besøkt <span id="currentCount">0</span>/<span id="totalCount">195</span> land.</p>
+
+    <p id="percentageVisited"></p>
 </body>
 
 </html>
