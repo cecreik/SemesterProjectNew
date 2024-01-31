@@ -14,7 +14,7 @@
         <h1>Registrer</h1>
         <!--input fields-->
         Name: <input type="text" id="name"><br><br>
-        Email: <input type="email" id="email"><br/><br>
+        Email: <input type="email" id="email"><br /><br>
         Password: <input type="password" id="pswHash"><br /><br>
         <button id="createUserButton">Create User</button>
     </div>
@@ -41,18 +41,29 @@
 
         //function to send POST request to specified URL with data
         async function postTo(url, data) {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const pswHash = document.getElementById("pswHash").value;
+
+            //create an user object with input values
+            const user = { name, email, pswHash };
+            fetch('/user', {
+        
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(user),
+            
+            })
+            console.log(data);
+
             //define request headers and bodt
-            const header = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            };
+
 
             //send POST request and wait for response
-            const response = await fetch(url, header);
-            return response; //return the response object
+            //const response = await fetch(url, header);
+            //return response; //return the response object
         }
 
     </script>

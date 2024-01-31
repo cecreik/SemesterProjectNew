@@ -5,22 +5,32 @@ import SuperLogger from "../modules/SuperLogger.mjs";
 
 
 const USER_API = express.Router();
-USER_API.use(express.json); // This makes it so that express parses all incoming payloads as JSON for this route.
+USER_API.use(express.json()); // This makes it so that express parses all incoming payloads as JSON for this route.
 
-const users = [];
+const users = [new User()];
+users[0].name = "Christian";
 
+USER_API.use((req,res,next)=>{
+    console.log("????");
+    next();
+});
 
-USER_API.get('/:id', (req, res, next) => {
+USER_API.get('/', (req, res, next) => {
 
-    SuperLogger.log("Trying to get an user with id" + req.params.id);
+    //SuperLogger.log("Henter alle brukere");
+    res.status(HTTPCodes.SuccesfullRespons.Ok).send(JSON.stringify(users)).end();
 
+    //SuperLogger.log("Trying to get an user with id" + req.params.id);
 
+//
     // Tip: All the information you need to get the id part of the request can be found in the documentation 
     // https://expressjs.com/en/guide/routing.html (Route parameters)
 
     /// TODO: 
     // Return user object
 })
+
+
 
 
 USER_API.post('/', (req, res, next) => {

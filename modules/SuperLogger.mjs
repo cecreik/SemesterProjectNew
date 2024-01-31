@@ -68,6 +68,7 @@ class SuperLogger {
 
         let logger = SuperLogger.instance;
         if (logger.#globalThreshold > logLevl){
+            next();
             return;
         }
         logger.#writeToLog(msg);
@@ -92,6 +93,7 @@ class SuperLogger {
 
             // If the threshold provided is less then the global threshold, we do not logg
             if (this.#globalThreshold > threshold) {
+                next();
                 return;
             }
 
