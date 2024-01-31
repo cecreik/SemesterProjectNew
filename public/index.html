@@ -9,18 +9,54 @@
 
 
 <body>
-    <h1>Hold oversikt over landene du har besøkt!</h1>
 
-    <label for="countryInput">Legg til land:</label>
-    <input type="text" id="countryInput" placeholder="Skriv inn land">
+    <div>
+        <h1>Registrer</h1>
+        <!--input fields-->
+        Name: <input type="text" id="name"><br><br>
+        Email: <input type="email" id="email"><br/><br>
+        Password: <input type="password" id="pswHash"><br /><br>
+        <button id="createUserButton">Create User</button>
+    </div>
 
-    <button onclick="leggTilLand()">Legg til</button>
+    <script>
+        //get the refrences from the create user button
+        const createUserButton = document.getElementById("createUserButton");
 
-    <ul id="countryList"></ul>
+        // add an eventlistener to the create user button
+        createUserButton.onclick = async function (e) {
 
-    <p id="visitedCount">Du har besøkt <span id="currentCount">0</span>/<span id="totalCount">195</span> land.</p>
+            //get the values from the user input
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const pswHash = document.getElementById("pswHash").value;
 
-    <p id="percentageVisited"></p>
+            //create an user object with input values
+            const user = { name, email, pswHash };
+
+            //send the user data to server for registration
+            const response = await postTo("/user", user);
+
+        }
+
+        //function to send POST request to specified URL with data
+        async function postTo(url, data) {
+            //define request headers and bodt
+            const header = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            };
+
+            //send POST request and wait for response
+            const response = await fetch(url, header);
+            return response; //return the response object
+        }
+
+    </script>
+
 </body>
 
 </html>
