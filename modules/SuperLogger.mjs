@@ -1,7 +1,6 @@
 import Chalk from "chalk";
 import { HTTPMethods } from "./httpConstants.mjs"
-import fs from "fs/promises";
-
+import fs from "fs/promises"
 
 //#region  Construct for decorating output.
 
@@ -50,7 +49,7 @@ class SuperLogger {
     // https://javascriptpatterns.vercel.app/patterns/design-patterns/singleton-pattern
     // This field is static 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static
-    static instance = null; //static changes who it belongs to, instead of it belonging to an object it belongs to a class
+    static instance = null;
 
     constructor() {
         // This constructor will allways return a refrence to the first instance created. 
@@ -63,17 +62,16 @@ class SuperLogger {
     }
     //#endregion
 
-    //
-    static log(msg, logLevl = SuperLogger.LOGGING_LEVELS.NORMAL){
+    static log(msg, logLevl = SuperLogger.LOGGING_LEVELS.NORMAL) {
 
-        let logger = SuperLogger.instance;
-        if (logger.#globalThreshold > logLevl){
-            next();
+        let logger = new SuperLogger();
+        if (logger.#globalThreshold > logLevl) {
             return;
         }
+
         logger.#writeToLog(msg);
-        
     }
+
 
     // This is our automatic logger, it outputs at a "normal" level
     // It is just a convinent wrapper around the more generic createLimitedRequestLogger function
@@ -93,7 +91,6 @@ class SuperLogger {
 
             // If the threshold provided is less then the global threshold, we do not logg
             if (this.#globalThreshold > threshold) {
-                next();
                 return;
             }
 
@@ -103,7 +100,7 @@ class SuperLogger {
 
     }
 
-    #LogHTTPRequest(req, res, next) { //#=private
+    #LogHTTPRequest(req, res, next) {
         // These are just some variables that we extract to show the point 
         // TODO: Extract and format information important for your dev process. 
         let type = req.method;
@@ -112,18 +109,20 @@ class SuperLogger {
 
         // TODO: This is just one simple thing to create structure and order. Can you do more?
         type = colorize(type);
-        this.#writeToLog
-        console.log(when, type, path);
+        this.#writeToLog([when, type, path].join(" "));
 
         // On to the next handler function
         next();
     }
 
-    #writeToLog(msg){
-        console.log(msg);
-        fs.appendFile("./log.txt", msg, (err) => {});
-    }
+    #writeToLog(msg) {
 
+        msg += "\n";
+        console.log(msg);
+        ///TODO: The files should be based on current date.
+        // ex: 300124.log
+        fs.appendFile("./log.txt", msg, { encoding: "utf8" }, (err) => { });
+    }
 }
 
 

@@ -5,97 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelTracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 400px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .hidden{
-            display: none;
-        }
-
-        h1, h3{
-            color: #333;
-            text-align: center;
-        }
-
-        label{
-            font-weight: bold;
-        }
-
-        input [type="text"],
-        input [type="email"],
-        input [type="password"],
-
-        button{
-            display: block;
-            margin: 10px auto;
-            padding: 8px;
-            width: calc(100% - 16px);
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button{
-            background-color: #65a183;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        button:hover{
-            background-color: #428b67;
-        }
-
-        ul{
-            list-style: none;
-            padding: 0;
-        }
-
-        li{
-            margin-bottom: 5px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-
-        a{
-            margin-left: 10px;
-            color: #428b67;
-            text-decoration: none;
-        }
-
-        a:hover{
-            text-decoration: underline;
-        }
-
-        p{
-            margin-top: 10px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 
 <body>
 
     <div id="registrationSection">
-        <h1>Registrer</h1>
+        <h1>Registration</h1>
         Name: <input type="text" id="name"><br><br>
         Email: <input type="email" id="email"><br /><br>
         Password: <input type="password" id="pswHash"><br /><br>
@@ -104,48 +20,66 @@
 
     <div id="loggedInPage" class="hidden">
         <h3>Welcome, <span id="loggedInUserName">!</span></h3>
-        <button onclick="showUserPage()">User</button>
-        <h1>Keep track of the countries you've visited!</h1>
+        <button id="userButton">User</button>
+        <h2>Keep track of the countries you've visited!</h2>
         <br>
         <label for="countryInput">Add country:</label>
         <input type="text" id="countryInput" placeholder="Where have you been?">
         <button onclick="addCountry()">Add</button>
-        
+
         <ul id="countryList"></ul>
         <p id="visitedCount">You have visited <span id="currentCount">0</span>/<span id="totalCount">195</span> countries.</p>
         <p id="percentageVisited"></p>
     </div>
 
+    <div id="userInfoPage" class="hidden">
+        <h1>Settings</h1>
+        <div id="userInfo"></div>
+        <br>
+        <button id="backButton">Back</button>
+    </div>
+
     <script>
-        
+        //------------------------------------------- 
         const createUserButton = document.getElementById("createUserButton");
         const registrationSection = document.getElementById("registrationSection");
         const loggedInPage = document.getElementById("loggedInPage");
+        const userInfoPage = document.getElementById("userInfoPage");
         const loggedInUserName = document.getElementById("loggedInUserName");
-        
-        createUserButton.onclick = async function (e) {
+        const userButton = document.getElementById("userButton");
 
-            //get the values from the user input
+        createUserButton.onclick = async function (e) {
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const pswHash = document.getElementById("pswHash").value;
 
-            //create an user object with input values
             const user = { name, email, pswHash };
 
-            //send the user data to server for registration
             const response = await postTo("/user", user);
 
-            if(response.ok){
+            if (response.ok) {
+                sessionStorage.setItem("userName", name);
                 registrationSection.classList.add("hidden");
                 loggedInPage.classList.remove("hidden");
                 loggedInUserName.textContent = name;
             }
         }
 
-        //function to send POST request to specified URL with data
+        userButton.onclick = function () {
+            const userName = sessionStorage.getItem("userName");
+            if (userName) {
+                loggedInPage.classList.add("hidden");
+                userInfoPage.classList.remove("hidden");
+                document.getElementById("userInfo").innerHTML = `<p>Welcome, ${userName}!</p>`;
+            }
+        }
+
+        document.getElementById("backButton").addEventListener("click", function () {
+            userInfoPage.classList.add("hidden");
+            loggedInPage.classList.remove("hidden");
+        });
+
         async function postTo(url, data) {
-            console.log(data);
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -155,13 +89,11 @@
             });
             return response;
         }
-
-        //-------------------------------Application where you add, edit, remove, x/195 and %
-
+//------------------------------------------- Application where you can add, edit, delete countries, it also calculates x/195 and % of the world
         let visitedCountries = 0;
-        let totalCountries = 195;
+        const totalCountries = 195;
 
-        function addCountry(){
+        function addCountry() {
             const countryInput = document.getElementById("countryInput").value.trim();
             if (countryInput === "") return;
 
@@ -169,8 +101,8 @@
             const listItem = document.createElement("li");
             listItem.textContent = countryInput;
 
-            const editLink = createLink(" Edit", ()=> editCountry(listItem));
-            const removeLink = createLink(" Remove", ()=> removeCountry(listItem));
+            const editLink = createLink(" Edit", () => editCountry(listItem));
+            const removeLink = createLink(" Remove", () => removeCountry(listItem));
 
             listItem.appendChild(editLink);
             listItem.appendChild(removeLink);
@@ -182,40 +114,41 @@
             updateVisitedPercentage();
         }
 
-        function createLink(text, onClickHandler){
+        function createLink(text, onClickHandler) {
             const link = document.createElement("a");
             link.href = "#";
             link.textContent = text;
-            link.onclick = function (event){
+            link.onclick = function (event) {
                 onClickHandler();
                 event.preventDefault();
             };
             return link;
         }
 
-        function updateVisitedCount(){
+        function updateVisitedCount() {
             document.getElementById("currentCount").textContent = visitedCountries;
             document.getElementById("totalCount").textContent = totalCountries;
         }
 
-        function updateVisitedPercentage(){
+        function updateVisitedPercentage() {
             const percentage = (visitedCountries / totalCountries) * 100;
-            document.getElementById("percentageVisited").textContent = `Wow! Thats ${percentage.toFixed(2)}% of the world!`;
+            document.getElementById("percentageVisited").textContent = `Wow! That's ${percentage.toFixed(2)}% of the world!`;
         }
 
-        function editCountry(listItem){
-            let currentName = listItem.firstChild.textContent;
-            let newName = prompt("Edit country:", currentName);
-            (newName !== null && newName !=="") && (listItem.firstChild.textContent = newName);
+        function editCountry(listItem) {
+            const currentName = listItem.firstChild.textContent;
+            const newName = prompt("Edit country:", currentName);
+            if (newName !== null && newName !== "") {
+                listItem.firstChild.textContent = newName;
+            }
         }
 
-        function removeCountry(listItem){
+        function removeCountry(listItem) {
             listItem.remove();
             visitedCountries--;
             updateVisitedCount();
             updateVisitedPercentage();
         }
-
     </script>
 
 </body>

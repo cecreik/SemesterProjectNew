@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hidden{
+    display: none;
+}
+
+h1, h3{
+    color: #333;
+    text-align: center;
+}
+
+#loggedInPage h2{
+    color: #333;
+    text-align: center;
+}
+
+label{
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+
+button{
+    display: block;
+    margin: 10px auto;
+    padding: 8px;
+    width: calc(100% - 16px);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button{
+    background-color: #65a183;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #428b67;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+a{
+    margin-left: 10px;
+    color: #428b67;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+p{
+    margin-top: 10px;
+    text-align: center;
+}
