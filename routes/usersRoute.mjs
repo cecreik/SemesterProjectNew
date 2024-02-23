@@ -3,44 +3,68 @@ import User from "../modules/user.mjs";
 import { HTTPCodes } from "../modules/httpConstants.mjs";
 import SuperLogger from "../modules/SuperLogger.mjs";
 
+
 const USER_API = express.Router();
-USER_API.use(express.json());
+USER_API.use(express.json()); // This makes it so that express parses all incoming payloads as JSON for this route.
 
 const users = [];
 
 USER_API.get('/', (req, res, next) => {
-    // Your GET request handler
-});
+    SuperLogger.log("Demo of logging tool");
+    SuperLogger.log("A important msg", SuperLogger.LOGGING_LEVELS.CRTICAL);
+})
+
 
 USER_API.get('/:id', (req, res, next) => {
-    // Your GET request handler for retrieving a specific user
-});
+
+    // Tip: All the information you need to get the id part of the request can be found in the documentation 
+    // https://expressjs.com/en/guide/routing.html (Route parameters)
+
+    /// TODO: 
+    // Return user object
+})
 
 USER_API.post('/', async (req, res, next) => {
-    const { name, email, password } = req.body;
 
-    if (name && email && password) {
-        // Check if user with the same email already exists
-        const userExists = users.some(user => user.email === email);
-        if (!userExists) {
-            const newUser = new User({ name, email, password });
-            // Here you would typically save the user to your database
-            users.push(newUser); // For demonstration purposes, pushing to a local array
-            res.status(HTTPCodes.SuccesfullRespons.Ok).json(newUser).end();
+    // This is using javascript object destructuring.
+    // Recomend reading up https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#syntax
+    // https://www.freecodecamp.org/news/javascript-object-destructuring-spread-operator-rest-parameter/
+    const { name, email, password } = req.body;
+    if (name != "" && email != "" && password != "") {
+        let user = new User();
+        user.name = name;
+        user.email = email;
+
+        ///TODO: Do not save passwords.
+        user.pswHash = password;
+
+        ///TODO: Does the user exist?
+        let exists = false;
+
+        if (!exists) {
+            //TODO: What happens if this fails?
+            user = await user.save();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json(JSON.stringify(user)).end();
         } else {
-            res.status(HTTPCodes.ClientSideErrorRespons.BadRequest).send("User already exists").end();
+            res.status(HTTPCodes.ClientSideErrorRespons.BadRequest).end();
         }
+
     } else {
-        res.status(HTTPCodes.ClientSideErrorRespons.BadRequest).send("Missing required fields").end();
+        res.status(HTTPCodes.ClientSideErrorRespons.BadRequest).send("Mangler data felt").end();
     }
+
 });
 
-USER_API.put('/:id', (req, res) => {
-    // Your PUT request handler for updating user information
+USER_API.post('/:id', (req, res, next) => {
+    /// TODO: Edit user
+    const user = new User(); //TODO: The user info comes as part of the request 
+    user.save();
 });
 
 USER_API.delete('/:id', (req, res) => {
-    // Your DELETE request handler for deleting a user
+    /// TODO: Delete user.
+    const user = new User(); //TODO: Actual user
+    user.delete();
 });
 
-export default USER_API;
+export default USER_API
