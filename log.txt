@@ -221,3 +221,17 @@ Database connection
 22:04:40 [32mGET[39m /
 22:04:40 [32mGET[39m /styles.css
 22:05:02 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+10:08:59 [32mGET[39m /
+10:08:59 [32mGET[39m /styles.css
+10:09:18 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:07:04 [32mGET[39m /
+12:07:05 [32mGET[39m /styles.css
+12:07:17 [33mPOST[39m /user
