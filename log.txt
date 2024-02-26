@@ -235,3 +235,20 @@ Database connection
 12:07:04 [32mGET[39m /
 12:07:05 [32mGET[39m /styles.css
 12:07:17 [33mPOST[39m /user
+####################
+Database connection  
+####################
+Server enviorment local
+16:31:07 [32mGET[39m /
+16:31:07 [32mGET[39m /styles.css
+16:31:15 [32mGET[39m /
+####################
+Server enviorment local
+Database connection  
+####################
+16:39:22 [32mGET[39m /
+16:39:22 [32mGET[39m /styles.css
+16:39:37 [32mGET[39m /
+16:39:37 [32mGET[39m /styles.css
+16:39:37 [32mGET[39m /favicon.ico
+16:39:48 [33mPOST[39m /user

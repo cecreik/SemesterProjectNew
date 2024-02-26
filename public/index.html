@@ -16,9 +16,10 @@
         Email: <input type="email" id="email"><br /><br>
         Password: <input type="password" id="pswHash"><br /><br>
         <button id="createUserButton">Create User</button>
+        <button id="continueWithoutUserButton">Continue without a user</button>
     </div>
 
-    <div id="loggedInPage" class="hidden">
+    <div id="applicationPage" class="hidden">
         <h3>Welcome, <span id="loggedInUserName">!</span></h3>
         <button id="userButton">User</button>
         <h2>Keep track of the countries you've visited!</h2>
@@ -42,8 +43,9 @@
     <script>
         //------------------------------------------- 
         const createUserButton = document.getElementById("createUserButton");
+        const continueWithoutUserButton = document.getElementById("continueWithoutUserButton");
         const registrationSection = document.getElementById("registrationSection");
-        const loggedInPage = document.getElementById("loggedInPage");
+        const applicationPage = document.getElementById("applicationPage");
         const userInfoPage = document.getElementById("userInfoPage");
         const loggedInUserName = document.getElementById("loggedInUserName");
         const userButton = document.getElementById("userButton");
@@ -58,23 +60,35 @@
             if (response.ok) {
                 sessionStorage.setItem("userName", name);
                 registrationSection.classList.add("hidden");
-                loggedInPage.classList.remove("hidden");
+                applicationPage.classList.remove("hidden");
                 loggedInUserName.textContent = name;
             }
+        }
+
+        continueWithoutUserButton.onclick = function(){
+            registrationSection.classList.add("hidden");
+            applicationPage.classList.remove("hidden");
+            document.getElementById("percentageVisited").classList.add("hidden");
         }
 
         userButton.onclick = function () {
             const userName = sessionStorage.getItem("userName");
             if (userName) {
-                loggedInPage.classList.add("hidden");
+                applicationPage.classList.add("hidden");
                 userInfoPage.classList.remove("hidden");
                 document.getElementById("userInfo").innerHTML = `<p>Welcome, ${userName}!</p>`;
+                document.getElementById("percentageVisited").classList.remove("hidden");
             }
         }
 
         document.getElementById("backButton").addEventListener("click", function () {
             userInfoPage.classList.add("hidden");
-            loggedInPage.classList.remove("hidden");
+            applicationPage.classList.remove("hidden");
+            if (sessionStorage.getItem("userName")){
+                document.getElementById("percentageVisited").classList.remove("hidden");
+            } else {
+                document.getElementById("percentageVisited").classList.add("hidden");
+            }
         });
 
         async function postTo(url, data) {
@@ -132,8 +146,10 @@
 
         function updateVisitedPercentage() {
             const percentage = (visitedCountries / totalCountries) * 100;
+            if (sessionStorage.getItem("userName")){
             document.getElementById("percentageVisited").textContent = `Wow! That's ${percentage.toFixed(2)}% of the world!`;
         }
+    }
 
         function editCountry(listItem) {
             const currentName = listItem.firstChild.textContent;
