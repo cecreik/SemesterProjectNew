@@ -17,12 +17,13 @@ USER_API.get('/', (req, res, next) => {
 
 USER_API.get('/:id', (req, res, next) => {
 
+})
     // Tip: All the information you need to get the id part of the request can be found in the documentation 
     // https://expressjs.com/en/guide/routing.html (Route parameters)
 
     /// TODO: 
     // Return user object
-})
+
 
 USER_API.post('/', async (req, res, next) => {
 
@@ -44,13 +45,13 @@ USER_API.post('/', async (req, res, next) => {
         if (!exists) {
             //TODO: What happens if this fails?
             user = await user.save();
-            res.status(HTTPCodes.SuccesfullRespons.Ok).json(JSON.stringify(user)).end();
+            res.status(HTTPCodes.SuccesfullResponse.Ok).json(JSON.stringify(user)).end();
         } else {
-            res.status(HTTPCodes.ClientSideErrorRespons.BadRequest).end();
+            res.status(HTTPCodes.ClientSideErrorResponse.BadRequest).end();
         }
 
     } else {
-        res.status(HTTPCodes.ClientSideErrorRespons.BadRequest).send("Mangler data felt").end();
+        res.status(HTTPCodes.ClientSideErrorResponse.BadRequest).send("Mangler data felt").end();
     }
 
 });
