@@ -12,11 +12,20 @@
 
     <div id="registrationSection">
         <h1>Registration</h1>
+        <button id="loginButton">Already have a user</button>
         Name: <input type="text" id="name"><br><br>
         Email: <input type="email" id="email"><br /><br>
         Password: <input type="password" id="pswHash"><br /><br>
         <button id="createUserButton">Create User</button>
         <button id="continueWithoutUserButton">Continue without a user</button>
+        
+    </div>
+
+    <div id="loginPage" class="hidden">
+        <h1>Login</h1>
+        Username: <input type="text" id="loginUsername"><br><br>
+        Password: <input type="password" id="loginPassword"><br><br>
+        <button id="loginSubmitButton">Login</button>
     </div>
 
     <div id="applicationPage" class="hidden">
@@ -28,18 +37,19 @@
         <label for="countryInput">Add country:</label>
         <input type="text" id="countryInput" placeholder="Where have you been?">
         <button onclick="addCountry()">Add</button>
-
         <ul id="countryList"></ul>
         <p id="visitedCount">You have visited <span id="currentCount">0</span>/<span id="totalCount">195</span> countries.</p>
         <p id="percentageVisited"></p>
-        
-
     </div>
 
     <div id="userInfoPage" class="hidden">
         <h1>Settings</h1>
         <div id="userInfo"></div>
+        Name: <input type="text" id="name"><br><br>
         <br>
+        Password: <input type="password" id="pswHash"><br /><br>
+        <button id="updateUser">Update user</button>
+        <button id="deleteUser">Delete user</button>
         <button id="backButton">Back</button>
     </div>
 
@@ -53,12 +63,15 @@
         const loggedInUserName = document.getElementById("loggedInUserName");
         const userButton = document.getElementById("userButton");
         const backToRegistrationButton = document.getElementById("backToRegistrationButton");
+        const loginButton = document.getElementById("loginButton"); 
+        const loginPage = document.getElementById("loginPage"); 
+        const loginSubmitButton = document.getElementById("loginSubmitButton");
 
         createUserButton.onclick = async function (e) {
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
-            const pswHash = document.getElementById("pswHash").value;
-            const user = { name, email, pswHash };
+            const password = document.getElementById("pswHash").value;
+            const user = { name, email, password };
             const response = await postTo("/user", user);
 
             if (response.ok) {
@@ -89,6 +102,20 @@
             applicationPage.classList.add("hidden");
             registrationSection.classList.remove("hidden");
             document.getElementById("percentageVisited").classList.add("hidden");
+        }
+
+        loginButton.onclick = function (){
+            registrationSection.classList.add("hidden");
+            loginPage.classList.remove("hidden");
+        }
+
+        loginSubmitButton.onclick = function () { 
+            const loginUsername = document.getElementById("loginUsername").value;
+            const loginPassword = document.getElementById("loginPassword").value;
+            registrationSection.classList.add("hidden");
+            loginPage.classList.add("hidden");
+            applicationPage.classList.remove("hidden");
+            loggedInUserName.textContent = loginUsername;
         }
 
         document.getElementById("backButton").addEventListener("click", function () {

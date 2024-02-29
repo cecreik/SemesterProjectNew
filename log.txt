@@ -313,3 +313,79 @@ Database connection
 ####################
 12:24:10 [32mGET[39m /
 12:24:10 [32mGET[39m /styles.css
+####################
+Server enviorment local
+####################
+Database connection  
+13:20:51 [32mGET[39m /
+13:20:51 [32mGET[39m /styles.css
+13:20:51 [32mGET[39m /favicon.ico
+####################
+Database connection  
+####################
+Server enviorment local
+13:34:26 [32mGET[39m /
+13:34:26 [32mGET[39m /styles.css
+####################
+####################
+Database connection  
+Server enviorment local
+13:35:20 [32mGET[39m /
+13:35:20 [32mGET[39m /styles.css
+13:35:53 [33mPOST[39m /user
+13:36:09 [32mGET[39m /
+13:36:09 [32mGET[39m /styles.css
+13:36:09 [32mGET[39m /favicon.ico
+13:36:15 [33mPOST[39m /user
+####################
+Database connection  
+Server enviorment local
+####################
+13:41:19 [32mGET[39m /
+13:41:19 [32mGET[39m /styles.css
+13:41:24 [33mPOST[39m /user
+13:41:52 [32mGET[39m /
+13:41:52 [32mGET[39m /styles.css
+13:41:54 [33mPOST[39m /user
+13:43:09 [33mPOST[39m /user
+13:53:59 [32mGET[39m /
+13:53:59 [32mGET[39m /styles.css
+13:53:59 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+13:58:18 [32mGET[39m /
+13:58:18 [32mGET[39m /styles.css
+13:58:18 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+14:13:16 [32mGET[39m /
+14:13:16 [32mGET[39m /styles.css
+14:13:27 [32mGET[39m /
+14:13:27 [32mGET[39m /styles.css
+14:18:47 [32mGET[39m /
+14:18:47 [32mGET[39m /styles.css
+14:19:10 [32mGET[39m /
+14:19:10 [32mGET[39m /styles.css
+14:21:57 [32mGET[39m /
+14:21:57 [32mGET[39m /styles.css
+14:22:03 [32mGET[39m /
+14:22:03 [32mGET[39m /styles.css
+14:22:10 [32mGET[39m /
+14:22:10 [32mGET[39m /styles.css
+14:22:16 [32mGET[39m /
+14:22:16 [32mGET[39m /styles.css
+14:22:21 [32mGET[39m /
+14:22:21 [32mGET[39m /styles.css
+14:31:43 [32mGET[39m /
+14:31:43 [32mGET[39m /styles.css
+####################
+Database connection  
+Server enviorment local
+####################
+14:33:45 [32mGET[39m /
+14:33:45 [32mGET[39m /styles.css
+14:34:00 [33mPOST[39m /user
