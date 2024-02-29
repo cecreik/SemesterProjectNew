@@ -270,3 +270,46 @@ Database connection
 12:38:53 [32mGET[39m /
 12:38:53 [32mGET[39m /styles.css
 12:39:09 [33mPOST[39m /user
+####################
+####################
+Database connection  
+Server enviorment local
+10:08:57 [32mGET[39m /
+10:08:57 [32mGET[39m /styles.css
+10:09:16 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+11:37:20 [32mGET[39m /
+11:37:21 [32mGET[39m /styles.css
+11:37:42 [33mPOST[39m /user
+11:37:55 [33mPOST[39m /user
+11:37:56 [33mPOST[39m /user
+11:38:03 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+11:40:49 [32mGET[39m /
+11:40:49 [32mGET[39m /styles.css
+11:41:03 [33mPOST[39m /user
+11:41:11 [32mGET[39m /
+12:02:56 [32mGET[39m /user
+Demo of logging tool
+A important msg
+12:03:09 [32mGET[39m /
+12:03:09 [32mGET[39m /styles.css
+12:03:09 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+12:23:19 [32mGET[39m /
+12:23:19 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+12:24:10 [32mGET[39m /
+12:24:10 [32mGET[39m /styles.css
