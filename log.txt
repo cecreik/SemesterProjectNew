@@ -389,3 +389,77 @@ Server enviorment local
 14:33:45 [32mGET[39m /
 14:33:45 [32mGET[39m /styles.css
 14:34:00 [33mPOST[39m /user
+####################
+Server enviorment local
+####################
+Database connection  
+15:09:18 [32mGET[39m /
+15:09:18 [32mGET[39m /styles.css
+15:09:44 [33mPOST[39m /user
+####################
+####################
+Database connection  
+Server enviorment local
+15:10:45 [32mGET[39m /
+15:10:45 [32mGET[39m /styles.css
+15:10:45 [32mGET[39m /favicon.ico
+####################
+####################
+Database connection  
+Server enviorment local
+15:15:02 [32mGET[39m /
+15:15:02 [32mGET[39m /styles.css
+15:15:21 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+15:24:04 [32mGET[39m /
+15:24:04 [32mGET[39m /styles.css
+Database connection  
+####################
+####################
+Server enviorment local
+15:25:41 [32mGET[39m /
+15:25:41 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+15:32:29 [32mGET[39m /
+15:32:29 [32mGET[39m /styles.css
+15:32:29 [32mGET[39m /favicon.ico
+####################
+Database connection  
+####################
+Server enviorment local
+15:35:45 [32mGET[39m /
+15:35:45 [32mGET[39m /styles.css
+15:35:45 [32mGET[39m /favicon.ico
+15:35:47 [32mGET[39m /
+15:35:47 [32mGET[39m /styles.css
+15:35:47 [32mGET[39m /favicon.ico
+Database connection  
+####################
+####################
+Server enviorment local
+15:38:22 [32mGET[39m /
+15:38:22 [32mGET[39m /styles.css
+15:38:22 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+####################
+Database connection  
+14:08:08 [32mGET[39m /
+14:08:08 [32mGET[39m /styles.css
+14:08:08 [32mGET[39m /favicon.ico
+14:08:24 [33mPOST[39m /user
+14:44:10 [32mGET[39m /
+14:44:10 [32mGET[39m /styles.css
+14:44:10 [32mGET[39m /favicon.ico
+14:44:21 [32mGET[39m /
+14:44:21 [32mGET[39m /styles.css
+14:44:21 [32mGET[39m /favicon.ico
+14:46:13 [32mGET[39m /
+14:46:13 [32mGET[39m /styles.css
+14:46:13 [32mGET[39m /favicon.ico
