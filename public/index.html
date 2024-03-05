@@ -23,7 +23,7 @@
 
     <div id="loginPage" class="hidden">
         <h1>Login</h1>
-        Username: <input type="text" id="loginUsername"><br><br>
+        Email: <input type="text" id="loginEmail"><br><br>
         Password: <input type="password" id="loginPassword"><br><br>
         <button id="loginSubmitButton">Login</button>
     </div>
@@ -110,7 +110,7 @@
         }
 
         loginSubmitButton.onclick = function () { 
-            const loginUsername = document.getElementById("loginUsername").value;
+            const loginEmail = document.getElementById("loginEmail").value;
             const loginPassword = document.getElementById("loginPassword").value;
             registrationSection.classList.add("hidden");
             loginPage.classList.add("hidden");
@@ -140,7 +140,7 @@
             const response = await fetch(url, header);
             return response;
         }
-
+//------------------------------------------- Application
         let visitedCountries = 0;
         const totalCountries = 195;
 

@@ -89,7 +89,26 @@ class DBManager {
 
     }
 
-}
+        async getAllUsers(){
+            const client = new pg.Client(this.#credentials);
+
+            try{
+                await client.connect();
+                const output = await client.query('SELECT * FROM public."Users"');
+                const users = output.rows;
+                return users;
+
+            } catch (error){
+                console.error(error);
+                throw error;
+
+            } finally {
+                client.end();
+            }
+        }
+
+        
+    }
 
 // The following is thre examples of how to get the db connection string from the enviorment variables.
 // They accomplish the same thing but in different ways.

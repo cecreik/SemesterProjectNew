@@ -463,3 +463,126 @@ Database connection
 14:46:13 [32mGET[39m /
 14:46:13 [32mGET[39m /styles.css
 14:46:13 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+10:08:48 [32mGET[39m /
+10:08:48 [32mGET[39m /styles.css
+10:09:40 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+10:51:50 [32mGET[39m /
+10:51:50 [32mGET[39m /styles.css
+10:52:47 [32mGET[39m /
+10:52:47 [32mGET[39m /styles.css
+10:52:47 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+10:53:03 [32mGET[39m /
+10:53:03 [32mGET[39m /styles.css
+10:53:26 [32mGET[39m /
+10:54:03 [32mGET[39m /
+10:54:03 [32mGET[39m /styles.css
+10:54:03 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+####################
+Database connection  
+10:54:18 [32mGET[39m /
+10:54:18 [32mGET[39m /styles.css
+10:54:37 [32mGET[39m /
+####################
+Server enviorment local
+Database connection  
+####################
+10:58:14 [32mGET[39m /
+10:58:14 [32mGET[39m /styles.css
+10:58:30 [32mGET[39m /
+10:58:30 [32mGET[39m /styles.css
+10:58:30 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+11:04:18 [32mGET[39m /
+11:04:18 [32mGET[39m /styles.css
+####################
+####################
+Server enviorment local
+Database connection  
+11:18:32 [32mGET[39m /
+11:18:32 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+12:36:41 [32mGET[39m /
+12:36:41 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+12:41:06 [32mGET[39m /
+12:41:06 [32mGET[39m /styles.css
+12:41:28 [32mGET[39m /
+12:41:28 [32mGET[39m /styles.css
+12:41:28 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+13:17:37 [32mGET[39m /
+13:17:37 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+13:19:25 [32mGET[39m /
+13:19:25 [32mGET[39m /styles.css
+13:19:53 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+13:21:41 [32mGET[39m /
+13:21:41 [32mGET[39m /styles.css
+13:21:41 [32mGET[39m /favicon.ico
+13:21:54 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+10:12:41 [32mGET[39m /
+10:12:41 [32mGET[39m /styles.css
+####################
+Server enviorment local
+####################
+Database connection  
+10:14:00 [32mGET[39m /
+10:14:00 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+10:16:06 [32mGET[39m /
+10:16:06 [32mGET[39m /styles.css
+10:16:06 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+10:33:08 [32mGET[39m /
+10:33:08 [32mGET[39m /styles.css
+10:33:29 [32mGET[39m /
+10:33:29 [32mGET[39m /styles.css
+####################
+Server enviorment local
+####################
+Database connection  
+10:39:11 [32mGET[39m /
+10:39:11 [32mGET[39m /styles.css
