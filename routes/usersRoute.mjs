@@ -9,10 +9,19 @@ USER_API.use(express.json()); // This makes it so that express parses all incomi
 
 const users = [];
 
-USER_API.get('/', (req, res, next) => {
+USER_API.get('/users', async (req, res, next) => {
     SuperLogger.log("Demo of logging tool");
     SuperLogger.log("A important msg", SuperLogger.LOGGING_LEVELS.CRTICAL);
-})
+
+    try {
+        let users = new User();
+        users = await users.displayAll();
+        res.status(HTTPCodes.SuccesfullResponse.Ok).json(users);
+    } catch {
+        consoloe.error('Error retriving all users:', error);
+        res.status(HTTPCodes.serverSideResponse.InternalServerError).json({error: 'Internal server error'});
+    }
+});
 
 
 USER_API.get('/:id', (req, res, next) => {
@@ -62,10 +71,36 @@ USER_API.post('/:id', (req, res, next) => {
     user.save();
 });
 
-USER_API.delete('/:id', (req, res) => {
-    /// TODO: Delete user.
-    const user = new User(); //TODO: Actual user
-    user.delete();
+USER_API.delete('/users/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    console.log('Deleting user with the ID:', userId);
+
+    //must check if it is the logged in user that wants to delte its own profile or an Admin 
+
+    let deleteUser = new User();
+
+    if (userId) {
+        try {
+            // Call the deleteUser method, not deletedUser
+            deleteUser = await deleteUser.delete(userId);
+
+            res.status(HTTPCodes.successfulResponse.Ok).json({ msg: 'The user with the id:' + userId + ' is now deleted' });
+        } catch (error) {
+            console.error('Error deleting user:', error);
+            res.status(HTTPCodes.InternalServerError).json({ error: 'Internal Server Error' });
+        }
+    } else {
+        console.log('User not found for deletion');
+        res.status(HTTPCodes.ClientSideErrorResponse.NotFound).json({ error: 'User not found' });
+    }
 });
+
+USER_API.use((err, req, res, next) => {
+    console.error(err);
+
+    res.status(500).json({ error: 'Internal Server Error' });
+});
+
 
 export default USER_API

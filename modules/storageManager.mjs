@@ -48,6 +48,12 @@ class DBManager {
             await client.connect();
             const output = await client.query('Delete from "public"."Users"  where id = $1;', [user.id]);
 
+            if (output.rowCount === 1){
+                console.log(`User ${user.id} deleted`);
+            }else{
+                console.log(`User ${user.id} does not exist`);
+            }
+
             // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
             // Of special intrest is the rows and rowCount properties of this object.
 
@@ -107,9 +113,26 @@ class DBManager {
             }
         }
 
+        async getUserByEmail(email) {
+            const client = new pg.Client(this.#credentials);
+    
+            try {
+                await client.connect();
+                const query = 'SELECT * FROM "public"."Users" WHERE "email" = $1';
+                const result = await client.query(query, [email]);
+                if (result.rows.length === 0) {
+                    return null; // Return null if user not found
+                }
+                return result.rows[0]; // Return the user object
+            } catch (error) {
+                // Handle errors...
+                throw error;
+            } finally {
+                client.end();
+            }
+        }
         
     }
-
 // The following is thre examples of how to get the db connection string from the enviorment variables.
 // They accomplish the same thing but in different ways.
 // It is a judgment call which one is the best. But go for the one you understand the best.

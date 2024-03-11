@@ -3,6 +3,7 @@ import express from 'express' // Express is installed using npm
 import USER_API from './routes/usersRoute.mjs'; // This is where we have defined the API for working with users.
 import SuperLogger from './modules/SuperLogger.mjs';
 import printDeveloperStartupInportantInformationMSG from './modules/developerHelpers.mjs';
+import DBManager from './modules/storageManager.mjs';
 
 printDeveloperStartupInportantInformationMSG();
 
@@ -16,45 +17,60 @@ server.set('port', port);
 // Enable logging for server
 const logger = new SuperLogger();
 server.use(logger.createAutoHTTPRequestLogger()); // Will logg all http method requests
-
-
+//parse incoming JSON payloads
+server.use(express.json());
 // Defining a folder that will contain static files.
 server.use(express.static('public'));
 
 // Telling the server to use the USER_API (all urls that uses this code will have to have the /user after the base address)
 server.use("/user", USER_API);
 
-// error handling middleware
-//server.use er for å fange feilene som skjer når man håndterer en request, hvis noe blir feil, logger den det og sender en melding til de som gjorde en request
-server.use((err, req, res, next) =>{ // definerer middlewaren med parameterne, error, req, res og next, 
-    SuperLogger.log(err);// logger errorene ved bruk av SuperLogger
- 
-    const errorMap={ //errorMap er et objekt som mapper(?) forskjellige typer errorer og dems errormelding og HTTP statuskode. Map er en datastruktur som lagerer en samling av nøkkel-verdi-par. 
-        //definerer en map som matcher error typene med error meldinger og http statuskoder
-        //definerer key-value pair med errorMap objekt, key/nøkkelen er notFoundError. 
-        // HTTPCodes.ClientSideErrorResponse.NotFound spesifiserer HTTP status koden for å bli sendt når den type error oppstår. 
-        notFoundError: {message: 'Resource not found', statusCode: HTTPCodes.ClientSideErrorResponse.NotFound}, 
-        //samme som over, definerer en annen key/nøkkel pair innen errorMap objektet, key/nøkkelen er authenticationError som representerer en annen type error
-        //statusCode: HTTPCodes.ClientSideErrorResponse.Unauthorized - HTTP statuskoden vil bli sendt når denne typen error oppstår
-        authenticationError: {message: 'Unauthorized', statusCode: HTTPCodes.ClientSideErrorResponse.Unauthorized},
-    };
-    // destruerer meldingen og statuskoden fra error*Map basert på navnet på feilen (err.constructor.name). hvis ikke funnet, bruk standard intern serverfeil med statuskode 400
-    const {message = 'Internal server error', statusCode = HTTPCodes.ClientSideErrorResponse.BadRequest} = errorMap[err.constructor.name] || {};
-    //setter HTTP status kode og sender en JSON respons med en error melding
-    res.status(statusCode).json({error: message});
+// Login endpoint
+server.post('/login', async (req, res, next) => {
+    try {
+      const { email, password } = req.body;
+      // Fetch user from the database based on email
+      const user = await DBManager.getUserByEmail(email);
+      if (!user) {
+        // If user not found, send 404 error
+        const notFoundError = new Error('User not found');
+        notFoundError.name = 'notFoundError';
+        throw notFoundError;
+      }
+      // Check if the password matches
+      if (user.password !== password) {
+        // If password is incorrect, send 401 error
+        const authenticationError = new Error('Invalid password');
+        authenticationError.name = 'authenticationError';
+        throw authenticationError;
+      }
+      // If login is successful, send user data
+      res.json({ message: 'Login successful', user });
+    } catch (error) {
+      // Handle errors
+      next(error);
+    }
 });
-//triggering a notFoundError:
-//server.get er når noen feks går inn på siden /nonexistent, vil den gi tilbake en melding
-server.get("/nonexistent", (req, res, next) =>{  
-    //lager et nytt error objekt med en melding, og kaller den for notFoundError
+
+  // Error handling middleware
+server.use((err, req, res, next) => {
+    SuperLogger.log(err);
+    const errorMap = {
+      notFoundError: { message: 'Resource not found', statusCode: 404 },
+      authenticationError: { message: 'Unauthorized', statusCode: 401 },
+    };
+    const { message = 'Internal server error', statusCode = 400 } = errorMap[err.name] || {};
+    res.status(statusCode).json({ error: message });
+});
+
+// Triggering a notFoundError
+server.get("/nonexistent", (req, res, next) => {
     const notFoundError = new Error('Resource not found');
     notFoundError.name = 'notFoundError';
-    //sender erroren til neste middleware funksjonen, som da er error handler middlewaren ovenfor
     next(notFoundError);
 });
 
-
-// Start the server 
-server.listen(server.get('port'), function () {
-    console.log('server running', server.get('port'));
+// Start the server
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });

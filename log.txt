@@ -586,3 +586,82 @@ Server enviorment local
 Database connection  
 10:39:11 [32mGET[39m /
 10:39:11 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+10:19:32 [32mGET[39m /
+10:19:32 [32mGET[39m /styles.css
+10:19:32 [32mGET[39m /favicon.ico
+10:20:12 [33mPOST[39m /login
+TypeError: Cannot destructure property 'email' of 'req.body' as it is undefined.
+10:20:17 [33mPOST[39m /login
+TypeError: Cannot destructure property 'email' of 'req.body' as it is undefined.
+10:21:14 [33mPOST[39m /login
+TypeError: Cannot destructure property 'email' of 'req.body' as it is undefined.
+10:22:56 [32mGET[39m /login
+####################
+Database connection  
+####################
+Server enviorment local
+10:42:58 [32mGET[39m /
+10:42:58 [32mGET[39m /styles.css
+10:42:58 [32mGET[39m /favicon.ico
+10:43:03 [32mGET[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+10:45:23 [32mGET[39m /
+10:45:23 [32mGET[39m /styles.css
+10:45:23 [32mGET[39m /favicon.ico
+10:46:24 [33mPOST[39m /login
+TypeError: Cannot destructure property 'email' of 'req.body' as it is undefined.
+####################
+Server enviorment local
+Database connection  
+####################
+####################
+Database connection  
+Server enviorment local
+####################
+10:51:13 [32mGET[39m /
+10:51:13 [32mGET[39m /styles.css
+10:51:38 [33mPOST[39m /login
+ReferenceError: DBManager is not defined
+####################
+Database connection  
+Server enviorment local
+####################
+10:53:16 [32mGET[39m /
+10:53:17 [32mGET[39m /styles.css
+10:53:33 [33mPOST[39m /login
+TypeError: DBManager.getUserByEmail is not a function
+####################
+Server enviorment local
+Database connection  
+####################
+10:57:07 [32mGET[39m /
+10:57:07 [32mGET[39m /styles.css
+10:57:07 [32mGET[39m /favicon.ico
+10:57:24 [33mPOST[39m /login
+10:57:41 [32mGET[39m /
+10:57:41 [32mGET[39m /styles.css
+10:57:53 [33mPOST[39m /login
+authenticationError: Invalid password
+10:57:59 [33mPOST[39m /login
+10:58:36 [32mGET[39m /login
+10:58:39 [32mGET[39m /
+10:58:39 [32mGET[39m /styles.css
+10:59:14 [33mPOST[39m /login
+####################
+Database connection  
+Server enviorment local
+####################
+11:05:45 [32mGET[39m /
+11:05:45 [32mGET[39m /styles.css
+11:05:54 [33mPOST[39m /login
+notFoundError: User not found
+11:06:08 [33mPOST[39m /login
+11:07:08 [33mPOST[39m /login
+11:07:14 [33mPOST[39m /login

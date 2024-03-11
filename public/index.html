@@ -109,14 +109,24 @@
             loginPage.classList.remove("hidden");
         }
 
-        loginSubmitButton.onclick = function () { 
+        loginSubmitButton.onclick = async function () { 
             const loginEmail = document.getElementById("loginEmail").value;
             const loginPassword = document.getElementById("loginPassword").value;
-            registrationSection.classList.add("hidden");
-            loginPage.classList.add("hidden");
-            applicationPage.classList.remove("hidden");
-            loggedInUserName.textContent = loginUsername;
+
+            const response = await postTo("/login", { email: loginEmail, password: loginPassword });
+
+            if (response.ok) {
+                const userData = await response.json();
+                sessionStorage.setItem("user", JSON.stringify(userData.user));
+                registrationSection.classList.add("hidden");
+                loginPage.classList.add("hidden");
+                applicationPage.classList.remove("hidden");
+                loggedInUserName.textContent = userData.user.name;
+            } else {
+                alert('Login failed. Please check your credentials.');
+            }
         }
+
 
         document.getElementById("backButton").addEventListener("click", function () {
             userInfoPage.classList.add("hidden");
