@@ -691,3 +691,67 @@ Database connection
 11:55:42 [32mGET[39m /
 11:55:42 [32mGET[39m /styles.css
 11:55:55 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+11:58:36 [32mGET[39m /
+11:58:36 [32mGET[39m /styles.css
+11:58:49 [33mPOST[39m /login
+authenticationError: Invalid password
+####################
+Server enviorment local
+####################
+Database connection  
+12:33:33 [32mGET[39m /
+12:33:33 [32mGET[39m /styles.css
+12:34:06 [33mPOST[39m /user/login
+12:34:14 [33mPOST[39m /user/login
+12:34:37 [32mGET[39m /login
+12:34:41 [32mGET[39m /
+12:34:41 [32mGET[39m /styles.css
+12:34:41 [32mGET[39m /favicon.ico
+12:34:52 [33mPOST[39m /user/login
+12:35:32 [33mPOST[39m /user/login
+Server enviorment local
+####################
+Database connection  
+####################
+12:38:34 [32mGET[39m /
+12:38:34 [32mGET[39m /styles.css
+12:38:53 [33mPOST[39m /user/login
+12:39:10 [32mGET[39m /
+####################
+Server enviorment local
+Database connection  
+####################
+12:41:09 [32mGET[39m /
+12:41:09 [32mGET[39m /styles.css
+12:41:23 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+12:43:18 [32mGET[39m /
+12:43:18 [32mGET[39m /styles.css
+12:43:30 [33mPOST[39m /login
+12:44:33 [32mGET[39m /
+12:44:33 [32mGET[39m /styles.css
+12:44:56 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:57:45 [32mGET[39m /
+12:57:45 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+12:59:57 [32mGET[39m /
+12:59:57 [32mGET[39m /styles.css
+13:00:14 [33mPOST[39m /user
+13:00:35 [32mGET[39m /
+13:00:35 [32mGET[39m /styles.css
+13:00:35 [32mGET[39m /favicon.ico
+13:00:49 [33mPOST[39m /login

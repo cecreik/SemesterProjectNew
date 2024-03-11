@@ -2,12 +2,14 @@ import express from "express";
 import User from "../modules/user.mjs";
 import { HTTPCodes } from "../modules/httpConstants.mjs";
 import SuperLogger from "../modules/SuperLogger.mjs";
+import {generateHash} from "../modules/crypto.mjs";
 
 
 const USER_API = express.Router();
 USER_API.use(express.json()); // This makes it so that express parses all incoming payloads as JSON for this route.
 
 const users = [];
+const secret = "imrefmner4893rhfreb/)$nrewl";
 
 USER_API.get('/users', async (req, res, next) => {
     SuperLogger.log("Demo of logging tool");
@@ -46,7 +48,8 @@ USER_API.post('/', async (req, res, next) => {
         user.email = email;
 
         ///TODO: Do not save passwords.
-        user.pswHash = password;
+
+        user.pswHash = generateHash(password, secret);
 
         ///TODO: Does the user exist?   
         let exists = false;

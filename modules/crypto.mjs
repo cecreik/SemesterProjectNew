@@ -9,6 +9,6 @@ export function generateHash(data, secret) {
 }
 
 // Usage example
-const secret = 'abcdefg';
-const hash = generateHash('I love cupcakes', secret);
-console.log(hash);
+//const secret = 'abcdefg';
+//const hash = generateHash('I love cupcakes', secret);
+//console.log(hash);

@@ -4,6 +4,7 @@ import USER_API from './routes/usersRoute.mjs'; // This is where we have defined
 import SuperLogger from './modules/SuperLogger.mjs';
 import printDeveloperStartupInportantInformationMSG from './modules/developerHelpers.mjs';
 import DBManager from './modules/storageManager.mjs';
+import {generateHash} from "./modules/crypto.mjs";
 
 printDeveloperStartupInportantInformationMSG();
 
@@ -12,6 +13,8 @@ const server = express();
 // Selecting a port for the server to use.
 const port = (process.env.PORT || 8080);
 server.set('port', port);
+
+const secret = "imrefmner4893rhfreb/)$nrewl";
 
 
 // Enable logging for server
@@ -29,6 +32,7 @@ server.use("/user", USER_API);
 server.post('/login', async (req, res, next) => {
     try {
       const { email, password } = req.body;
+      console.log("before getUserByEmail");
       // Fetch user from the database based on email
       const user = await DBManager.getUserByEmail(email);
       if (!user) {
@@ -37,8 +41,10 @@ server.post('/login', async (req, res, next) => {
         notFoundError.name = 'notFoundError';
         throw notFoundError;
       }
+      console.log("DB pwd:" + user.password);
+      console.log("input pwd:" + password);
       // Check if the password matches
-      if (user.password !== password) {
+      if (user.password !== generateHash(password, secret)) {
         // If password is incorrect, send 401 error
         const authenticationError = new Error('Invalid password');
         authenticationError.name = 'authenticationError';
