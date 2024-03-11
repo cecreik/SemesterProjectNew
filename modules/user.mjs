@@ -1,4 +1,5 @@
 import DBManager from "./storageManager.mjs";
+import { generateHash } from "./crypto.mjs";
 
 class User {
   constructor() {
@@ -10,11 +11,13 @@ class User {
 
   async save() {
     if (this.id == null) {
-      return await DBManager.createUser(this);
+        // Encrypt the password before saving
+        this.pswHash = generateHash(this.pswHash, process.env.PASSWORD_SECRET);
+        return await DBManager.createUser(this);
     } else {
-      return await DBManager.updateUser(this);
+        return await DBManager.updateUser(this);
     }
-  }
+}
 
   delete() {
     DBManager.deleteUser(this);

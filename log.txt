@@ -665,3 +665,29 @@ notFoundError: User not found
 11:06:08 [33mPOST[39m /login
 11:07:08 [33mPOST[39m /login
 11:07:14 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+11:15:40 [32mGET[39m /
+11:15:40 [32mGET[39m /styles.css
+11:16:10 [33mPOST[39m /login
+####################
+Server enviorment local
+####################
+Database connection  
+11:48:06 [32mGET[39m /
+11:48:06 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+11:52:51 [32mGET[39m /
+11:52:51 [32mGET[39m /styles.css
+Server enviorment local
+####################
+Database connection  
+####################
+11:55:42 [32mGET[39m /
+11:55:42 [32mGET[39m /styles.css
+11:55:55 [33mPOST[39m /user
