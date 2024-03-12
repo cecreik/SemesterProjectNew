@@ -9,7 +9,6 @@ const USER_API = express.Router();
 USER_API.use(express.json()); // This makes it so that express parses all incoming payloads as JSON for this route.
 
 const users = [];
-const secret = "imrefmner4893rhfreb/)$nrewl";
 
 USER_API.get('/users', async (req, res, next) => {
     SuperLogger.log("Demo of logging tool");
@@ -49,7 +48,7 @@ USER_API.post('/', async (req, res, next) => {
 
         ///TODO: Do not save passwords.
 
-        user.pswHash = generateHash(password, secret);
+        user.pswHash = generateHash(password, process.env.SECRET);
 
         ///TODO: Does the user exist?   
         let exists = false;

@@ -8,7 +8,3 @@ export function generateHash(data, secret) {
     return hash;
 }
 
-// Usage example
-//const secret = 'abcdefg';
-//const hash = generateHash('I love cupcakes', secret);
-//console.log(hash);

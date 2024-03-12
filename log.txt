@@ -755,3 +755,44 @@ Database connection
 13:00:35 [32mGET[39m /styles.css
 13:00:35 [32mGET[39m /favicon.ico
 13:00:49 [33mPOST[39m /login
+####################
+Database connection  
+Server enviorment local
+####################
+14:40:24 [32mGET[39m /
+14:40:24 [32mGET[39m /styles.css
+14:40:51 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+14:46:18 [32mGET[39m /
+14:46:19 [32mGET[39m /styles.css
+14:46:35 [33mPOST[39m /login
+14:48:14 [32mGET[39m /
+####################
+Server enviorment local
+Database connection  
+####################
+14:56:49 [32mGET[39m /
+14:56:49 [32mGET[39m /styles.css
+14:57:03 [33mPOST[39m /login
+14:57:14 [32mGET[39m /
+14:57:14 [32mGET[39m /styles.css
+14:57:32 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+14:59:49 [32mGET[39m /
+14:59:50 [32mGET[39m /styles.css
+15:00:13 [33mPOST[39m /login
+notFoundError: User not found
+15:00:19 [33mPOST[39m /login
+####################
+Database connection  
+####################
+Server enviorment local
+15:00:58 [32mGET[39m /
+15:00:58 [32mGET[39m /styles.css
+15:01:15 [33mPOST[39m /login

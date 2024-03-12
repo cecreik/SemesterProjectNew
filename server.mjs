@@ -14,7 +14,6 @@ const server = express();
 const port = (process.env.PORT || 8080);
 server.set('port', port);
 
-const secret = "imrefmner4893rhfreb/)$nrewl";
 
 
 // Enable logging for server
@@ -44,7 +43,7 @@ server.post('/login', async (req, res, next) => {
       console.log("DB pwd:" + user.password);
       console.log("input pwd:" + password);
       // Check if the password matches
-      if (user.password !== generateHash(password, secret)) {
+      if (user.password !== generateHash(password, process.env.SECRET)) {
         // If password is incorrect, send 401 error
         const authenticationError = new Error('Invalid password');
         authenticationError.name = 'authenticationError';
