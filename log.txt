@@ -863,3 +863,51 @@ Database connection
 14:21:48 [33mPOST[39m /user
 14:21:59 [32mGET[39m /
 14:23:12 [32mGET[39m /serviceWorker.js
+####################
+Server enviorment local
+Database connection  
+####################
+14:33:00 [32mGET[39m /favicon.ico
+14:33:01 [32mGET[39m /serviceWorker.js
+14:33:07 [32mGET[39m /
+14:38:22 [32mGET[39m /
+14:38:22 [32mGET[39m /styles.css
+14:38:22 [32mGET[39m /favicon.ico
+14:38:41 [33mPOST[39m /login
+notFoundError: User not found
+####################
+Server enviorment local
+Database connection  
+####################
+14:38:58 [32mGET[39m /serviceWorker.js
+14:39:00 [32mGET[39m /
+14:39:05 [32mGET[39m /
+14:39:05 [32mGET[39m /styles.css
+14:39:05 [32mGET[39m /favicon.ico
+14:39:26 [33mPOST[39m /login
+notFoundError: User not found
+14:39:58 [32mGET[39m /favicon.ico
+14:39:59 [32mGET[39m /serviceWorker.js
+14:40:03 [32mGET[39m /
+14:40:03 [32mGET[39m /styles.css
+14:40:03 [32mGET[39m /favicon.ico
+14:40:05 [32mGET[39m /favicon.ico
+14:40:06 [32mGET[39m /serviceWorker.js
+####################
+Server enviorment local
+Database connection  
+####################
+14:45:07 [32mGET[39m /
+14:45:07 [32mGET[39m /styles.css
+14:45:22 [32mGET[39m /
+14:46:27 [33mPOST[39m /login
+notFoundError: User not found
+14:49:03 [33mPOST[39m /login
+notFoundError: User not found
+####################
+Server enviorment local
+Database connection  
+####################
+14:56:08 [32mGET[39m /
+14:56:08 [32mGET[39m /styles.css
+14:56:27 [33mPOST[39m /login
