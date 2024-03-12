@@ -832,3 +832,34 @@ Database connection
 14:02:19 [32mGET[39m /index.html
 14:02:19 [32mGET[39m /
 14:02:19 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+14:06:58 [32mGET[39m /favicon.ico
+14:06:59 [32mGET[39m /serviceWorker.js
+####################
+Server enviorment local
+Database connection  
+####################
+14:08:56 [32mGET[39m /serviceWorker.js
+14:10:30 [32mGET[39m /favicon.ico
+14:10:31 [32mGET[39m /serviceWorker.js
+####################
+Server enviorment local
+####################
+Database connection  
+14:13:38 [32mGET[39m /serviceWorker.js
+####################
+Server enviorment local
+Database connection  
+####################
+14:16:42 [32mGET[39m /serviceWorker.js
+Server enviorment local
+####################
+Database connection  
+####################
+14:21:05 [32mGET[39m /serviceWorker.js
+14:21:48 [33mPOST[39m /user
+14:21:59 [32mGET[39m /
+14:23:12 [32mGET[39m /serviceWorker.js
