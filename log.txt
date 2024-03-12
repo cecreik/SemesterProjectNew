@@ -911,3 +911,54 @@ Database connection
 14:56:08 [32mGET[39m /
 14:56:08 [32mGET[39m /styles.css
 14:56:27 [33mPOST[39m /login
+####################
+Server enviorment local
+####################
+Database connection  
+17:16:39 [32mGET[39m /
+17:16:39 [32mGET[39m /styles.css
+17:16:39 [32mGET[39m /
+####################
+Server enviorment local
+Database connection  
+####################
+17:19:06 [32mGET[39m /
+17:19:06 [32mGET[39m /styles.css
+17:20:27 [32mGET[39m /
+17:20:28 [32mGET[39m /styles.css
+17:20:37 [32mGET[39m /
+17:20:37 [32mGET[39m /styles.css
+17:22:07 [32mGET[39m /
+17:22:07 [32mGET[39m /styles.css
+17:22:07 [32mGET[39m /favicon.ico
+17:22:11 [32mGET[39m /
+17:22:11 [32mGET[39m /styles.css
+17:22:11 [32mGET[39m /favicon.ico
+17:22:17 [32mGET[39m /
+17:22:17 [32mGET[39m /styles.css
+17:22:17 [32mGET[39m /favicon.ico
+17:22:23 [32mGET[39m /
+17:22:23 [32mGET[39m /styles.css
+17:22:23 [32mGET[39m /favicon.ico
+17:22:29 [32mGET[39m /
+17:22:29 [32mGET[39m /styles.css
+17:22:29 [32mGET[39m /favicon.ico
+17:22:35 [32mGET[39m /
+17:22:35 [32mGET[39m /styles.css
+17:22:35 [32mGET[39m /favicon.ico
+17:22:41 [32mGET[39m /
+17:22:41 [32mGET[39m /styles.css
+17:22:48 [32mGET[39m /
+17:22:48 [32mGET[39m /styles.css
+17:22:54 [32mGET[39m /
+17:22:54 [32mGET[39m /styles.css
+17:23:00 [32mGET[39m /
+17:23:00 [32mGET[39m /styles.css
+17:23:14 [32mGET[39m /
+17:23:14 [32mGET[39m /styles.css
+17:23:20 [32mGET[39m /
+17:23:20 [32mGET[39m /styles.css
+17:23:20 [32mGET[39m /favicon.ico
+17:23:25 [32mGET[39m /
+17:23:25 [32mGET[39m /styles.css
+17:23:47 [33mPOST[39m /login

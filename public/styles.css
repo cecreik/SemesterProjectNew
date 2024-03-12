@@ -85,3 +85,11 @@ p{
     margin-top: 10px;
     text-align: center;
 }
+
+
+#google_translate_element {
+    position: fixed; 
+    top: 50px; 
+    left: 635px; 
+    z-index: 9999; 
+}
