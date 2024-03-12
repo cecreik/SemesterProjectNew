@@ -796,3 +796,15 @@ Server enviorment local
 15:00:58 [32mGET[39m /
 15:00:58 [32mGET[39m /styles.css
 15:01:15 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+10:26:24 [32mGET[39m /
+10:26:24 [32mGET[39m /styles.css
+10:26:24 [32mGET[39m /favicon.ico
+10:26:44 [33mPOST[39m /user
+10:26:55 [32mGET[39m /
+10:26:55 [32mGET[39m /styles.css
+10:26:55 [32mGET[39m /favicon.ico
+10:27:05 [33mPOST[39m /login
