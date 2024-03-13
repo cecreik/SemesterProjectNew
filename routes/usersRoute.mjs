@@ -2,107 +2,98 @@ import express from "express";
 import User from "../modules/user.mjs";
 import { HTTPCodes } from "../modules/httpConstants.mjs";
 import SuperLogger from "../modules/SuperLogger.mjs";
-import {generateHash} from "../modules/crypto.mjs";
-
+import { generateHash } from "../modules/crypto.mjs";
+import DBManager from "../modules/storageManager.mjs";
 
 const USER_API = express.Router();
-USER_API.use(express.json()); // This makes it so that express parses all incoming payloads as JSON for this route.
-
-const users = [];
+USER_API.use(express.json()); 
 
 USER_API.get('/users', async (req, res, next) => {
-    SuperLogger.log("Demo of logging tool");
-    SuperLogger.log("A important msg", SuperLogger.LOGGING_LEVELS.CRTICAL);
-
     try {
-        let users = new User();
-        users = await users.displayAll();
-        res.status(HTTPCodes.SuccesfullResponse.Ok).json(users);
-    } catch {
-        consoloe.error('Error retriving all users:', error);
-        res.status(HTTPCodes.serverSideResponse.InternalServerError).json({error: 'Internal server error'});
+        const users = await DBManager.getAllUsers();
+        res.status(HTTPCodes.SuccessfullResponse.Ok).json(users);
+    } catch (error) {
+        console.error('Error retrieving all users:', error);
+        res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
     }
 });
 
-
-USER_API.get('/:id', (req, res, next) => {
-
-})
-    // Tip: All the information you need to get the id part of the request can be found in the documentation 
-    // https://expressjs.com/en/guide/routing.html (Route parameters)
-
-    /// TODO: 
-    // Return user object
-
+USER_API.get('/:id', async (req, res, next) => {
+    try {
+        const userId = req.params.id;
+        const user = await DBManager.getUserById(userId);
+        if (!user) {
+            res.status(HTTPCodes.ClientSideErrorResponse.NotFound).json({ error: 'User not found' });
+        } else {
+            res.status(HTTPCodes.SuccessfullResponse.Ok).json(user);
+        }
+    } catch (error) {
+        console.error('Error retrieving user by ID:', error);
+        res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
+    }
+});
 
 USER_API.post('/', async (req, res, next) => {
-
-    // This is using javascript object destructuring.
-    // Recomend reading up https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#syntax
-    // https://www.freecodecamp.org/news/javascript-object-destructuring-spread-operator-rest-parameter/
-    const { name, email, password } = req.body;
-    if (name != "" && email != "" && password != "") {
-        let user = new User();
-        user.name = name;
-        user.email = email;
-
-        ///TODO: Do not save passwords.
-
-        user.pswHash = generateHash(password, process.env.SECRET);
-
-        ///TODO: Does the user exist?   
-        let exists = false;
-
-        if (!exists) {
-            //TODO: What happens if this fails?
-            user = await user.save();
-            res.status(HTTPCodes.SuccesfullResponse.Ok).json(JSON.stringify(user)).end();
-        } else {
-            res.status(HTTPCodes.ClientSideErrorResponse.BadRequest).end();
+    try {
+        const { name, email, password } = req.body;
+        if (!name || !email || !password) {
+            res.status(HTTPCodes.ClientSideErrorResponse.BadRequest).json({ error: 'Missing required fields' });
+            return;
         }
-
-    } else {
-        res.status(HTTPCodes.ClientSideErrorResponse.BadRequest).send("Mangler data felt").end();
+        
+        const hashedPassword = generateHash(password, process.env.SECRET);
+        const newUser = { name, email, password: hashedPassword };
+        
+        const user = await DBManager.createUser(newUser);
+        res.status(HTTPCodes.SuccessfullResponse.Ok).json(user);
+    } catch (error) {
+        console.error('Error creating user:', error);
+        res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
     }
-
 });
 
-USER_API.post('/:id', (req, res, next) => {
-    /// TODO: Edit user
-    const user = new User(); //TODO: The user info comes as part of the request 
-    user.save();
-});
-
-USER_API.delete('/users/:id', async (req, res) => {
+USER_API.put('/updateUser/:id', async (req, res) => {
     const userId = req.params.id;
+   // const {name, password} = req.body;
+    const name = req.body.name
+    let password= req.body.password
+    const hashedPassword = generateHash(password, process.env.SECRET);
+    password =hashedPassword
 
-    console.log('Deleting user with the ID:', userId);
+    try {
+        // Update user information in the database
+        const updatedUser = await DBManager.updateUser(userId, name, password);
 
-    //must check if it is the logged in user that wants to delte its own profile or an Admin 
+        // Respond with updated user data
+        res.status(HTTPCodes.SuccessfullResponse.Ok).json(updatedUser);
+    } catch (error) {
+        console.error('Error updating user:', error);
+        res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
+    }
+});
 
-    let deleteUser = new User();
 
-    if (userId) {
-        try {
-            // Call the deleteUser method, not deletedUser
-            deleteUser = await deleteUser.delete(userId);
 
-            res.status(HTTPCodes.successfulResponse.Ok).json({ msg: 'The user with the id:' + userId + ' is now deleted' });
-        } catch (error) {
-            console.error('Error deleting user:', error);
-            res.status(HTTPCodes.InternalServerError).json({ error: 'Internal Server Error' });
-        }
-    } else {
-        console.log('User not found for deletion');
-        res.status(HTTPCodes.ClientSideErrorResponse.NotFound).json({ error: 'User not found' });
+
+USER_API.delete('/:id', async (req, res, next) => {
+    try {
+        const userId = req.params.id;
+        await DBManager.deleteUser(userId);
+        res.status(HTTPCodes.SuccessfullResponse.Ok).json({ message: 'User deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting user:', error);
+        res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
     }
 });
 
 USER_API.use((err, req, res, next) => {
     console.error(err);
-
-    res.status(500).json({ error: 'Internal Server Error' });
+    const errorMap = {
+      notFoundError: { message: 'Resource not found', statusCode: 404 },
+      authenticationError: { message: 'Unauthorized', statusCode: 401 },
+    };
+    const { message = 'Internal server error', statusCode = 400 } = errorMap[err.name] || {};
+    res.status(statusCode).json({ error: message });
 });
 
-
-export default USER_API
+export default USER_API;

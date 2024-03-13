@@ -32,7 +32,7 @@
 
     <div id="applicationPage" class="hidden">
         <h3 app-translate="Welcome, !">Welcome, <span id="loggedInUserName">!</span></h3>
-        <button id="userButton" app-translate="User">User</button>
+        <button id="settingsButton" app-translate="Settings">Settings</button>
         <button id="backToRegistrationButton" app-translate="Back to Registration">Back to Registration</button>
         <h2 app-translate="Keep track of the countries you've visited!">Keep track of the countries you've visited!</h2>
         <br>
@@ -44,27 +44,34 @@
         <p id="percentageVisited"></p>
     </div>
 
-    <div id="userInfoPage" class="hidden">
+    <div id="settingsPage" class="hidden">
         <h1 app-translate="Settings">Settings</h1>
-        <div id="userInfo"></div>
-        <label for="name" app-translate="Name">Name:</label><input type="text" id="name"><br><br>
-        <label for="pswHash" app-translate="Password">Password:</label><input type="password" id="pswHash"><br /><br>
-        <label for="email" app-translate="Email">Email:</label><input type="email" id="email"><br /><br>
-        <button id="updateUser" app-translate="Update user">Update user</button>
-        <button id="deleteUser" app-translate="Delete user">Delete user</button>
-        <button id="backButton" app-translate="Back">Back</button>
+        <button id="backToApplicationButton" app-translate="Back to Application">Back to Application</button>
+        <label for="newUsername" app-translate="New Username">New Username:</label><input type="text" id="newUsername"><br><br>
+        <label for="newPassword" app-translate="New Password">New Password:</label><input type="password" id="newPassword"><br><br>
+        <button id="updateUserInfoButton" app-translate="Update User Info">Update User Info</button>
+        <button id="deleteUserButton" app-translate="Delete User">Delete User</button>
     </div>
+    
 
     <script>
         //-------------------------------------------
         const createUserButton = document.getElementById("createUserButton");
         const continueWithoutUserButton = document.getElementById("continueWithoutUserButton");
         const registrationSection = document.getElementById("registrationSection");
+
         const applicationPage = document.getElementById("applicationPage");
-        const userInfoPage = document.getElementById("userInfoPage");
+        const settingsButton = document.getElementById("settingsButton");
+        const backToApplicationButton = document.getElementById("backToApplicationButton");
+        const settingsPage = document.getElementById("settingsPage");
+
+        const updateUserInfoButton = document.getElementById("updateUserInfoButton");
+        const deleteUserButton = document.getElementById("deleteUserButton");
+
+
         const loggedInUserName = document.getElementById("loggedInUserName");
-        const userButton = document.getElementById("userButton");
         const backToRegistrationButton = document.getElementById("backToRegistrationButton");
+
         const loginButton = document.getElementById("loginButton");
         const loginPage = document.getElementById("loginPage");
         const loginSubmitButton = document.getElementById("loginSubmitButton");
@@ -93,16 +100,6 @@
             registrationSection.classList.add("hidden");
             applicationPage.classList.remove("hidden");
             document.getElementById("percentageVisited").classList.add("hidden");
-        }
-
-        userButton.onclick = function () {
-            const userName = sessionStorage.getItem("userName");
-            if (userName) {
-                applicationPage.classList.add("hidden");
-                userInfoPage.classList.remove("hidden");
-                document.getElementById("userInfo").innerHTML = `<p>Welcome, ${userName}!</p>`;
-                document.getElementById("percentageVisited").classList.remove("hidden");
-            }
         }
 
         backToRegistrationButton.onclick = function () {
@@ -134,9 +131,80 @@
             }
         }
 
+        settingsButton.onclick = function () {
+            applicationPage.classList.add("hidden");
+            settingsPage.classList.remove("hidden");
+
+            // Populate input fields with current user information
+    const userData = JSON.parse(sessionStorage.getItem("user"));
+    document.getElementById("newUsername").value = userData.name;
+    // You might not want to display password in the input field
+    // document.getElementById("newPassword").value = ""; 
+}
+
+function getUserIdFromSession() {
+    // Retrieve user ID from session storage
+    const userData = JSON.parse(sessionStorage.getItem('user'));
+    return userData ? userData.id : null; // Assuming user object has an 'id' property
+}
+
+
+// Attach event listener to Update User Info button
+updateUserInfoButton.addEventListener('click', async () => {
+    const newUsername = document.getElementById("newUsername").value;
+    const newPassword = document.getElementById("newPassword").value;
+
+    const userId = getUserIdFromSession(); // Implement this function to get user ID
+    const updatedUser = { name: newUsername, password: newPassword };
+
+    try {
+        const response = await fetch(`/user/updateUser/${userId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updatedUser)
+        });
+
+        if (response.ok) {
+            alert('User information updated successfully.');
+        } else {
+            throw new Error('Failed to update user information.');
+        }
+    } catch (error) {
+        console.error('Update user info error:', error);
+        alert('Failed to update user information.');
+    }
+});
+
+
+
+
+
+deleteUserButton.onclick = async function () {
+    const userData = JSON.parse(sessionStorage.getItem("user"));
+    const userId = userData.id;
+
+    const response = await fetch(`/deleteUser/${userId}`, {
+        method: "DELETE"
+    });
+
+    if (response.ok) {
+        // Clear sessionStorage and redirect to registration page
+        sessionStorage.removeItem("user");
+        applicationPage.classList.add("hidden");
+        settingsPage.classList.add("hidden");
+        registrationSection.classList.remove("hidden");
+        alert("User deleted successfully.");
+    } else {
+        alert("Failed to delete user.");
+    }
+}
+
+        backToApplicationButton.onclick = function () {
+            settingsPage.classList.add("hidden");
+            applicationPage.classList.remove("hidden");
+        }
 
         document.getElementById("backButton").addEventListener("click", function () {
-            userInfoPage.classList.add("hidden");
             applicationPage.classList.remove("hidden");
             if (sessionStorage.getItem("userName")){
                 document.getElementById("percentageVisited").classList.remove("hidden");

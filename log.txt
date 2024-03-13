@@ -1072,3 +1072,258 @@ Database connection
 ####################
 10:13:42 [32mGET[39m /
 10:13:42 [32mGET[39m /styles.css
+####################
+Server enviorment local
+Database connection  
+####################
+10:18:45 [32mGET[39m /
+10:18:45 [32mGET[39m /styles.css
+10:18:46 [32mGET[39m /favicon.ico
+10:18:59 [33mPOST[39m /login
+10:26:06 [32mGET[39m /
+10:26:06 [32mGET[39m /styles.css
+10:26:07 [32mGET[39m /favicon.ico
+10:26:12 [33mPOST[39m /login
+####################
+Server enviorment local
+####################
+Database connection  
+10:36:39 [32mGET[39m /
+10:36:39 [32mGET[39m /styles.css
+10:36:56 [33mPOST[39m /login
+10:38:52 [32mGET[39m /
+10:38:52 [32mGET[39m /styles.css
+10:38:52 [32mGET[39m /favicon.ico
+10:38:58 [33mPOST[39m /login
+10:45:07 [32mGET[39m /
+10:45:07 [32mGET[39m /styles.css
+10:45:07 [32mGET[39m /favicon.ico
+10:45:12 [33mPOST[39m /login
+10:54:05 [32mGET[39m /
+10:54:05 [32mGET[39m /styles.css
+10:54:05 [32mGET[39m /favicon.ico
+10:54:11 [33mPOST[39m /login
+10:58:25 [32mGET[39m /
+10:58:25 [32mGET[39m /styles.css
+10:58:25 [32mGET[39m /favicon.ico
+10:58:31 [33mPOST[39m /login
+10:58:51 [33mPUT[39m /updateUser
+10:59:28 [33mPUT[39m /updateUser
+11:03:36 [32mGET[39m /
+11:03:36 [32mGET[39m /styles.css
+11:03:36 [32mGET[39m /favicon.ico
+11:03:43 [33mPOST[39m /login
+11:03:55 [33mPUT[39m /user
+11:05:49 [32mGET[39m /
+11:05:49 [32mGET[39m /styles.css
+11:05:49 [32mGET[39m /favicon.ico
+11:05:54 [33mPOST[39m /login
+11:06:03 [33mPUT[39m /updateUser
+11:07:21 [32mGET[39m /
+11:07:22 [32mGET[39m /styles.css
+11:07:22 [32mGET[39m /favicon.ico
+11:07:26 [33mPOST[39m /login
+11:07:35 [33mPUT[39m /user/updateUser/29
+11:07:55 [33mPUT[39m /user/updateUser/29
+11:15:49 [32mGET[39m /
+11:15:49 [32mGET[39m /styles.css
+11:15:49 [32mGET[39m /favicon.ico
+11:15:54 [33mPOST[39m /login
+11:16:02 [33mPUT[39m /user/updateUser/29
+11:16:51 [33mPUT[39m /user/updateUser/29
+11:23:03 [32mGET[39m /
+11:23:03 [32mGET[39m /styles.css
+11:23:03 [32mGET[39m /favicon.ico
+11:23:09 [33mPOST[39m /login
+11:26:09 [32mGET[39m /
+11:26:09 [32mGET[39m /styles.css
+11:26:09 [32mGET[39m /favicon.ico
+11:26:18 [33mPOST[39m /login
+11:26:32 [33mPUT[39m /user/updateUser/null
+11:33:35 [32mGET[39m /
+11:33:35 [32mGET[39m /styles.css
+11:33:35 [32mGET[39m /favicon.ico
+11:33:40 [33mPOST[39m /login
+11:33:49 [33mPUT[39m /user/updateUser/29
+11:37:33 [32mGET[39m /
+11:37:33 [32mGET[39m /styles.css
+11:37:33 [32mGET[39m /favicon.ico
+11:37:38 [33mPOST[39m /login
+11:37:49 [33mPUT[39m /user/updateUser/29
+11:40:48 [32mGET[39m /
+11:40:48 [32mGET[39m /styles.css
+11:40:48 [32mGET[39m /favicon.ico
+11:40:54 [33mPOST[39m /login
+11:41:02 [33mPUT[39m /user/updateUser/29
+11:41:19 [33mPUT[39m /user/updateUser/29
+####################
+Server enviorment local
+Database connection  
+####################
+11:53:54 AM GET /
+11:53:54 AM GET /styles.css
+11:53:54 AM GET /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+11:54:55 AM POST /login
+####################
+Server enviorment local
+Database connection  
+####################
+####################
+Server enviorment local
+Database connection  
+####################
+12:01:30 PM PUT /user/updateUser/29
+####################
+Server enviorment local
+Database connection  
+####################
+12:02:29 PM PUT /user/updateUser/29
+####################
+Server enviorment local
+Database connection  
+####################
+12:03:47 PM PUT /user/updateUser/29
+####################
+Server enviorment local
+Database connection  
+####################
+12:05:00 PM PUT /user/updateUser/29
+####################
+Server enviorment local
+Database connection  
+####################
+12:24:41 PM PUT /user/updateUser/29
+####################
+Server enviorment local
+Database connection  
+####################
+####################
+Server enviorment local
+Database connection  
+####################
+12:29:47 PM GET /
+12:29:47 PM GET /styles.css
+12:29:47 PM GET /favicon.ico
+12:30:08 PM POST /login
+authenticationError: Invalid password
+12:30:24 PM POST /login
+authenticationError: Invalid password
+12:30:31 PM POST /login
+authenticationError: Invalid password
+12:31:22 PM POST /login
+authenticationError: Invalid password
+12:31:45 PM POST /login
+authenticationError: Invalid password
+####################
+Server enviorment local
+Database connection  
+####################
+12:34:50 PM GET /
+12:34:50 PM GET /styles.css
+12:34:50 PM GET /favicon.ico
+12:35:03 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:35:15 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:35:27 PM GET /
+12:35:27 PM GET /styles.css
+12:35:28 PM GET /favicon.ico
+12:35:31 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:36:35 PM GET /
+12:36:35 PM GET /styles.css
+12:36:35 PM GET /favicon.ico
+12:36:40 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:40:14 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:40:30 PM GET /
+12:40:30 PM GET /styles.css
+12:40:30 PM GET /favicon.ico
+12:40:42 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:47:59 PM GET /
+12:47:59 PM GET /styles.css
+12:47:59 PM GET /favicon.ico
+12:48:05 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:48:34 PM GET /
+12:48:35 PM GET /styles.css
+12:48:35 PM GET /favicon.ico
+12:48:40 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:49:01 PM GET /
+12:49:01 PM GET /styles.css
+12:49:01 PM GET /favicon.ico
+12:49:05 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:52:34 PM GET /
+12:52:34 PM GET /styles.css
+12:52:34 PM GET /favicon.ico
+12:52:39 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:53:16 PM GET /
+12:53:16 PM GET /styles.css
+12:53:16 PM GET /favicon.ico
+12:53:21 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:55:18 PM GET /
+12:55:18 PM GET /styles.css
+12:55:18 PM GET /favicon.ico
+12:55:23 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:56:42 PM GET /
+12:56:42 PM GET /styles.css
+12:56:42 PM GET /favicon.ico
+12:56:47 PM POST /user
+12:57:22 PM PUT /user/updateUser/29
+####################
+Server enviorment local
+Database connection  
+####################
+13:38:04 [32mGET[39m /
+13:38:05 [32mGET[39m /styles.css
+13:38:37 [33mPOST[39m /login
+13:38:41 [32mGET[39m /
+13:38:41 [32mGET[39m /styles.css
+13:39:04 [32mGET[39m /

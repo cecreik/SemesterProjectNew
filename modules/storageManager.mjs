@@ -2,9 +2,6 @@ import pg from "pg"
 import SuperLogger from "./SuperLogger.mjs";
 
 
-
-/// TODO: is the structure / design of the DBManager as good as it could be?
-
 class DBManager {
 
     #credentials = {};
@@ -17,29 +14,30 @@ class DBManager {
 
     }
 
-    async updateUser(user) {
-
+    async updateUser(userId, name, password) {
         const client = new pg.Client(this.#credentials);
-
+    
         try {
             await client.connect();
-            const output = await client.query('Update "public"."Users" set "name" = $1, "email" = $2, "password" = $3 where id = $4;', [user.name, user.email, user.pswHash, user.id]);
 
-            // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
-            // Of special intrest is the rows and rowCount properties of this object.
+            const output = await client.query('UPDATE "public"."Users" SET "name" = $1, "password" = $2 WHERE id = $3 RETURNING *', [name, password, userId]);
+    
 
-            //TODO Did we update the user?
+            if (output.rows.length > 0) {
+                const updatedUser = output.rows[0];
+                return updatedUser;
+              } else {
+                throw new Error("User not found or not updated");
+              }
 
         } catch (error) {
-            //TODO : Error handling?? Remember that this is a module seperate from your server 
+            console.error('Error updating user:', error);
+            throw new Error('Failed to update user information'); // Rethrow the error to handle it in the calling code
         } finally {
-            client.end(); // Always disconnect from the database.
+            client.end();
         }
-
-        return user;
-
     }
-
+    
     async deleteUser(user) {
 
         const client = new pg.Client(this.#credentials);
@@ -57,10 +55,9 @@ class DBManager {
             // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
             // Of special intrest is the rows and rowCount properties of this object.
 
-            //TODO: Did the user get deleted?
 
         } catch (error) {
-            //TODO : Error handling?? Remember that this is a module seperate from your server 
+
         } finally {
             client.end(); // Always disconnect from the database.
         }
@@ -86,7 +83,7 @@ class DBManager {
 
         } catch (error) {
             console.error(error);
-            //TODO : Error handling?? Remember that this is a module seperate from your server 
+
         } finally {
             client.end(); // Always disconnect from the database.
         }

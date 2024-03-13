@@ -3,7 +3,7 @@
 
 class HTTPCodes {
 
-    static SuccesfullResponse = {
+    static SuccessfullResponse = {
         Ok: 200
     }
 
