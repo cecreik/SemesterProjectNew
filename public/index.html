@@ -33,6 +33,7 @@
     <div id="applicationPage" class="hidden">
         <h3 app-translate="Welcome, !">Welcome, <span id="loggedInUserName">!</span></h3>
         <button id="settingsButton" app-translate="Settings">Settings</button>
+        <button id="logoutButton" app-translate="Logout">Logout</button>
         <button id="backToRegistrationButton" app-translate="Back to Registration">Back to Registration</button>
         <h2 app-translate="Keep track of the countries you've visited!">Keep track of the countries you've visited!</h2>
         <br>
@@ -64,6 +65,7 @@
         const settingsButton = document.getElementById("settingsButton");
         const backToApplicationButton = document.getElementById("backToApplicationButton");
         const settingsPage = document.getElementById("settingsPage");
+        const logoutButton = document.getElementById("logoutButton");
 
         const updateUserInfoButton = document.getElementById("updateUserInfoButton");
         const deleteUserButton = document.getElementById("deleteUserButton");
@@ -130,23 +132,36 @@
                 alert('Login failed. Please check your credentials.');
             }
         }
+        
 
         settingsButton.onclick = function () {
             applicationPage.classList.add("hidden");
             settingsPage.classList.remove("hidden");
 
-            // Populate input fields with current user information
-    const userData = JSON.parse(sessionStorage.getItem("user"));
-    document.getElementById("newUsername").value = userData.name;
-    // You might not want to display password in the input field
-    // document.getElementById("newPassword").value = ""; 
-}
+                    // Populate input fields with current user information
+            const userData = JSON.parse(sessionStorage.getItem("user"));
+            document.getElementById("newUsername").value = userData.name;
+            // You might not want to display password in the input field
+            // document.getElementById("newPassword").value = ""; 
+        }
 
-function getUserIdFromSession() {
-    // Retrieve user ID from session storage
-    const userData = JSON.parse(sessionStorage.getItem('user'));
-    return userData ? userData.id : null; // Assuming user object has an 'id' property
-}
+        function getUserIdFromSession() {
+            // Retrieve user ID from session storage
+            const userData = JSON.parse(sessionStorage.getItem('user'));
+            return userData ? userData.id : null; // Assuming user object has an 'id' property
+        }
+
+// Add event listener to the logout button
+logoutButton.addEventListener("click", function() {
+    // Perform logout actions here
+    // For example, clear session storage and redirect to the registration page
+    sessionStorage.removeItem("user");
+    // You may also want to clear any other stored data or perform additional cleanup
+    // Redirect the user to the registration page or any other appropriate page
+    applicationPage.classList.add("hidden");
+    settingsPage.classList.add("hidden");
+    registrationSection.classList.remove("hidden");
+});
 
 
 // Attach event listener to Update User Info button
@@ -175,10 +190,6 @@ updateUserInfoButton.addEventListener('click', async () => {
     }
 });
 
-
-
-
-
 deleteUserButton.onclick = async function () {
     const userData = JSON.parse(sessionStorage.getItem("user"));
     const userId = userData.id;
@@ -204,14 +215,6 @@ deleteUserButton.onclick = async function () {
             applicationPage.classList.remove("hidden");
         }
 
-        document.getElementById("backButton").addEventListener("click", function () {
-            applicationPage.classList.remove("hidden");
-            if (sessionStorage.getItem("userName")){
-                document.getElementById("percentageVisited").classList.remove("hidden");
-            } else {
-                document.getElementById("percentageVisited").classList.add("hidden");
-            }
-        });
 
         async function postTo(url, data) {
             const header = {

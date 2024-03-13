@@ -1327,3 +1327,89 @@ Database connection
 13:38:41 [32mGET[39m /
 13:38:41 [32mGET[39m /styles.css
 13:39:04 [32mGET[39m /
+####################
+Server enviorment local
+Database connection  
+####################
+14:46:03 [32mGET[39m /
+14:46:03 [32mGET[39m /styles.css
+14:46:20 [33mPOST[39m /login
+14:47:13 [32mGET[39m /
+####################
+Server enviorment local
+####################
+Database connection  
+14:47:58 [32mGET[39m /
+14:47:58 [32mGET[39m /styles.css
+14:47:58 [32mGET[39m /favicon.ico
+14:48:15 [33mPOST[39m /login
+####################
+Database connection  
+####################
+Server enviorment local
+15:12:03 [32mGET[39m /
+15:12:03 [32mGET[39m /styles.css
+15:12:03 [32mGET[39m /favicon.ico
+15:12:25 [33mPOST[39m /login
+15:12:36 [33mPOST[39m /logout
+####################
+Server enviorment local
+Database connection  
+####################
+15:27:59 [32mGET[39m /
+15:27:59 [32mGET[39m /styles.css
+15:28:24 [33mPOST[39m /login
+15:28:26 [33mPOST[39m /logout
+15:30:02 [33mPOST[39m /logout
+####################
+Server enviorment local
+Database connection  
+####################
+15:37:00 [32mGET[39m /
+15:37:00 [32mGET[39m /styles.css
+15:37:00 [32mGET[39m /favicon.ico
+15:37:07 [33mPOST[39m /login
+15:37:13 [33mPOST[39m /logout
+15:38:13 [33mPOST[39m /logout
+####################
+Server enviorment local
+Database connection  
+####################
+15:39:39 [32mGET[39m /
+15:39:39 [32mGET[39m /styles.css
+15:39:57 [33mPOST[39m /login
+15:40:00 [33mPOST[39m /logout
+15:40:13 [32mGET[39m /
+15:40:28 [33mPOST[39m /logout
+####################
+Server enviorment local
+Database connection  
+####################
+15:43:29 [32mGET[39m /
+15:43:29 [32mGET[39m /styles.css
+15:43:48 [33mPOST[39m /login
+15:43:53 [33mPOST[39m /logout
+####################
+Server enviorment local
+Database connection  
+####################
+15:57:09 [32mGET[39m /
+15:57:10 [32mGET[39m /styles.css
+15:57:35 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+16:13:14 [32mGET[39m /
+16:13:14 [32mGET[39m /styles.css
+16:13:14 [32mGET[39m /favicon.ico
+16:13:28 [33mPOST[39m /login
+16:13:34 [32mGET[39m /
+16:18:06 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+16:18:51 [32mGET[39m /
+16:18:51 [32mGET[39m /styles.css
+16:19:10 [33mPOST[39m /login
