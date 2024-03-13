@@ -962,3 +962,113 @@ Database connection
 17:23:25 [32mGET[39m /
 17:23:25 [32mGET[39m /styles.css
 17:23:47 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+17:36:17 [32mGET[39m /
+17:36:17 [32mGET[39m /styles.css
+17:36:17 [32mGET[39m /favicon.ico
+17:36:29 [33mPOST[39m /login
+17:36:45 [32mGET[39m /
+17:36:45 [32mGET[39m /styles.css
+17:36:45 [32mGET[39m /favicon.ico
+17:36:51 [33mPOST[39m /user
+17:37:12 [32mGET[39m /
+17:37:12 [32mGET[39m /styles.css
+17:37:27 [33mPOST[39m /login
+####################
+Server enviorment local
+####################
+Database connection  
+17:42:45 [32mGET[39m /
+17:42:45 [32mGET[39m /styles.css
+17:42:45 [32mGET[39m /favicon.ico
+17:43:00 [33mPOST[39m /login
+17:46:33 [32mGET[39m /
+17:46:33 [32mGET[39m /styles.css
+17:46:33 [32mGET[39m /favicon.ico
+17:47:09 [33mPOST[39m /user
+17:50:00 [32mGET[39m /
+17:50:00 [32mGET[39m /styles.css
+17:50:00 [32mGET[39m /favicon.ico
+17:50:17 [33mPOST[39m /login
+17:50:54 [32mGET[39m /
+17:50:54 [32mGET[39m /styles.css
+17:50:55 [32mGET[39m /favicon.ico
+17:51:06 [33mPOST[39m /login
+TypeError [ERR_INVALID_ARG_TYPE]: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+17:51:15 [32mGET[39m /
+17:51:15 [32mGET[39m /styles.css
+17:51:15 [32mGET[39m /favicon.ico
+17:51:21 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+18:11:58 [32mGET[39m /
+18:11:58 [32mGET[39m /styles.css
+18:12:15 [33mPOST[39m /login
+18:12:37 [32mGET[39m /
+18:14:37 [32mGET[39m /
+18:14:37 [32mGET[39m /styles.css
+18:14:37 [32mGET[39m /favicon.ico
+18:14:43 [33mPOST[39m /login
+####################
+Database connection  
+Server enviorment local
+####################
+18:41:54 [32mGET[39m /
+18:41:54 [32mGET[39m /styles.css
+18:42:08 [33mPOST[39m /login
+18:42:41 [32mGET[39m /
+18:42:41 [32mGET[39m /styles.css
+18:42:41 [32mGET[39m /favicon.ico
+18:42:46 [33mPOST[39m /login
+18:43:05 [32mGET[39m /
+18:43:05 [32mGET[39m /styles.css
+18:43:05 [32mGET[39m /favicon.ico
+18:43:10 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+19:04:43 [32mGET[39m /
+19:04:43 [32mGET[39m /styles.css
+19:04:56 [33mPOST[39m /login
+19:05:05 [32mGET[39m /
+####################
+Server enviorment local
+Database connection  
+####################
+19:15:53 [32mGET[39m /
+19:15:53 [32mGET[39m /styles.css
+19:17:43 [32mGET[39m /
+19:17:43 [32mGET[39m /styles.css
+19:18:14 [33mPOST[39m /login
+19:19:52 [32mGET[39m /
+19:19:52 [32mGET[39m /styles.css
+19:19:52 [32mGET[39m /favicon.ico
+19:20:02 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+19:22:58 [32mGET[39m /
+19:22:58 [32mGET[39m /styles.css
+####################
+Database connection  
+####################
+Server enviorment local
+10:04:49 [32mGET[39m /
+10:04:49 [32mGET[39m /styles.css
+####################
+Database connection  
+Server enviorment local
+####################
+####################
+Server enviorment local
+Database connection  
+####################
+10:13:42 [32mGET[39m /
+10:13:42 [32mGET[39m /styles.css

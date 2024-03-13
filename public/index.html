@@ -14,45 +14,45 @@
     <div id="google_translate_element"></div>
 
     <div id="registrationSection">
-        <h1 data-translate="Registration">Registration</h1>
-        <button id="loginButton" data-translate="Already have a user">Already have a user</button>
-        <label for="name" data-translate="Name">Name:</label><input type="text" id="name"><br><br>
-        <label for="email" data-translate="Email">Email:</label><input type="email" id="email"><br /><br>
-        <label for="pswHash" data-translate="Password">Password:</label><input type="password" id="pswHash"><br /><br>
-        <button id="createUserButton" data-translate="Create User">Create User</button>
-        <button id="continueWithoutUserButton" data-translate="Continue without a user">Continue without a user</button>
+        <h1 app-translate="Registration">Registration</h1>
+        <button id="loginButton" app-translate="Already have a user">Already have a user</button>
+        <label for="name" app-translate="Name">Name:</label><input type="text" id="name"><br><br>
+        <label for="email" app-translate="Email">Email:</label><input type="email" id="email"><br /><br>
+        <label for="pswHash" app-translate="Password">Password:</label><input type="password" id="pswHash"><br /><br>
+        <button id="createUserButton" app-translate="Create User">Create User</button>
+        <button id="continueWithoutUserButton" app-translate="Continue without a user">Continue without a user</button>
     </div>
 
     <div id="loginPage" class="hidden">
-        <h1 data-translate="Login">Login</h1>
-        <label for="loginEmail" data-translate="Email">Email:</label><input type="text" id="loginEmail"><br><br>
-        <label for="loginPassword" data-translate="Password">Password:</label><input type="password" id="loginPassword"><br><br>
-        <button id="loginSubmitButton" data-translate="Login">Login</button>
+        <h1 app-translate="Login">Login</h1>
+        <label for="loginEmail" app-translate="Email">Email:</label><input type="text" id="loginEmail"><br><br>
+        <label for="loginPassword" app-translate="Password">Password:</label><input type="password" id="loginPassword"><br><br>
+        <button id="loginSubmitButton" app-translate="Login">Login</button>
     </div>
 
     <div id="applicationPage" class="hidden">
-        <h3 data-translate="Welcome, !">Welcome, <span id="loggedInUserName">!</span></h3>
-        <button id="userButton" data-translate="User">User</button>
-        <button id="backToRegistrationButton" data-translate="Back to Registration">Back to Registration</button>
-        <h2 data-translate="Keep track of the countries you've visited!">Keep track of the countries you've visited!</h2>
+        <h3 app-translate="Welcome, !">Welcome, <span id="loggedInUserName">!</span></h3>
+        <button id="userButton" app-translate="User">User</button>
+        <button id="backToRegistrationButton" app-translate="Back to Registration">Back to Registration</button>
+        <h2 app-translate="Keep track of the countries you've visited!">Keep track of the countries you've visited!</h2>
         <br>
-        <label for="countryInput" data-translate="Add country">Add country:</label>
+        <label for="countryInput" app-translate="Add country">Add country:</label>
         <input type="text" id="countryInput" placeholder="Where have you been?">
-        <button onclick="addCountry()" data-translate="Add">Add</button>
+        <button onclick="addCountry()" app-translate="Add">Add</button>
         <ul id="countryList"></ul>
-        <p id="visitedCount" data-translate="You have visited : <span id='currentCount'>0</span>/<span id='totalCount'>195</span> countries.">You have visited <span id="currentCount">0</span>/<span id="totalCount">195</span> countries.</p>
+        <p id="visitedCount" app-translate="You have visited : <span id='currentCount'>0</span>/<span id='totalCount'>195</span> countries.">You have visited <span id="currentCount">0</span>/<span id="totalCount">195</span> countries.</p>
         <p id="percentageVisited"></p>
     </div>
 
     <div id="userInfoPage" class="hidden">
-        <h1 data-translate="Settings">Settings</h1>
+        <h1 app-translate="Settings">Settings</h1>
         <div id="userInfo"></div>
-        <label for="name" data-translate="Name">Name:</label><input type="text" id="name"><br><br>
-        <label for="pswHash" data-translate="Password">Password:</label><input type="password" id="pswHash"><br /><br>
-        <label for="email" data-translate="Email">Email:</label><input type="email" id="email"><br /><br>
-        <button id="updateUser" data-translate="Update user">Update user</button>
-        <button id="deleteUser" data-translate="Delete user">Delete user</button>
-        <button id="backButton" data-translate="Back">Back</button>
+        <label for="name" app-translate="Name">Name:</label><input type="text" id="name"><br><br>
+        <label for="pswHash" app-translate="Password">Password:</label><input type="password" id="pswHash"><br /><br>
+        <label for="email" app-translate="Email">Email:</label><input type="email" id="email"><br /><br>
+        <button id="updateUser" app-translate="Update user">Update user</button>
+        <button id="deleteUser" app-translate="Delete user">Delete user</button>
+        <button id="backButton" app-translate="Back">Back</button>
     </div>
 
     <script>
