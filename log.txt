@@ -1570,3 +1570,20 @@ authenticationError: Invalid password
 12:10:40 [33mPOST[39m /login
 authenticationError: Invalid password
 12:11:16 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+12:12:52 [32mGET[39m /
+12:12:52 [32mGET[39m /styles.css
+12:12:52 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+Database connection  
+####################
+12:14:53 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:17:34 PM POST /user
