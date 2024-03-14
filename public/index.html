@@ -40,6 +40,8 @@
         <label for="countryInput" app-translate="Add country">Add country:</label>
         <input type="text" id="countryInput" placeholder="Where have you been?">
         <button onclick="addCountry()" app-translate="Add">Add</button>
+        <button id="shareResultButton" app-translate="Share Result">Share Result</button>
+
         <ul id="countryList"></ul>
         <p id="visitedCount" app-translate="You have visited : <span id='currentCount'>0</span>/<span id='totalCount'>195</span> countries.">You have visited <span id="currentCount">0</span>/<span id="totalCount">195</span> countries.</p>
         <p id="percentageVisited"></p>
@@ -66,6 +68,7 @@
         const backToApplicationButton = document.getElementById("backToApplicationButton");
         const settingsPage = document.getElementById("settingsPage");
         const logoutButton = document.getElementById("logoutButton");
+        const shareResultButton = document.getElementById("shareResultButton");
 
         const updateUserInfoButton = document.getElementById("updateUserInfoButton");
         const deleteUserButton = document.getElementById("deleteUserButton");
@@ -114,6 +117,14 @@
             registrationSection.classList.add("hidden");
             loginPage.classList.remove("hidden");
         }
+
+        shareResultButton.addEventListener("click", function() {
+            const percentage = (visitedCountries / totalCountries) * 100;
+            const message = `Look! I have visited ${visitedCountries} out of ${totalCountries} countries, which is ${percentage.toFixed(2)}% of the world! Check your stats with TravelTracker!`;
+
+            // Display a popup with the result
+            alert(message);
+        });
 
         loginSubmitButton.addEventListener('click', async () => {
     const loginEmail = document.getElementById("loginEmail").value;

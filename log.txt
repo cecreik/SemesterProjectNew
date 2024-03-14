@@ -1852,3 +1852,23 @@ notFoundError: User not found
 21:53:17 [32mGET[39m /styles.css
 21:53:17 [32mGET[39m /favicon.ico
 21:53:30 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+22:08:08 [32mGET[39m /
+22:08:08 [32mGET[39m /styles.css
+22:08:08 [32mGET[39m /favicon.ico
+22:08:25 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+22:10:22 [32mGET[39m /
+22:10:22 [32mGET[39m /styles.css
+22:10:22 [32mGET[39m /favicon.ico
+22:10:34 [33mPOST[39m /login
+22:11:03 [32mGET[39m /
+22:11:03 [32mGET[39m /styles.css
+22:11:03 [32mGET[39m /favicon.ico
+22:11:10 [33mPOST[39m /login
