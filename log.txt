@@ -1729,3 +1729,126 @@ authenticationError: Invalid password
 authenticationError: Invalid password
 14:01:59 [33mPOST[39m /login
 14:02:11 [31mDELETE[39m /user/deleteUser/56
+####################
+Server enviorment local
+Database connection  
+####################
+14:08:10 [32mGET[39m /
+14:08:10 [32mGET[39m /styles.css
+14:08:11 [32mGET[39m /favicon.ico
+14:08:30 [32mGET[39m /
+14:08:30 [32mGET[39m /styles.css
+14:08:30 [32mGET[39m /favicon.ico
+14:08:42 [33mPOST[39m /user
+14:10:29 [33mPOST[39m /login
+14:10:40 [33mPUT[39m /user/userupdate/57
+14:10:51 [33mPOST[39m /login
+14:17:39 [31mDELETE[39m /user/deleteUser/57
+Server enviorment local
+####################
+Database connection  
+####################
+17:00:14 [32mGET[39m /
+17:00:14 [32mGET[39m /styles.css
+20:52:55 [32mGET[39m /
+20:52:55 [32mGET[39m /styles.css
+20:53:18 [33mPOST[39m /user
+20:53:22 [32mGET[39m /
+20:53:22 [32mGET[39m /styles.css
+20:53:32 [33mPOST[39m /login
+authenticationError: Invalid password
+20:53:38 [33mPOST[39m /login
+authenticationError: Invalid password
+20:53:41 [32mGET[39m /
+20:53:41 [32mGET[39m /styles.css
+####################
+Database connection  
+####################
+Server enviorment local
+20:54:11 [32mGET[39m /
+20:54:11 [32mGET[39m /styles.css
+20:54:31 [33mPOST[39m /user
+20:54:34 [32mGET[39m /
+20:54:34 [32mGET[39m /styles.css
+20:54:45 [33mPOST[39m /login
+20:54:57 [32mGET[39m /
+20:54:57 [32mGET[39m /styles.css
+20:55:07 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+21:00:32 [32mGET[39m /
+21:00:33 [32mGET[39m /styles.css
+21:00:33 [32mGET[39m /favicon.ico
+21:00:43 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+21:09:38 [32mGET[39m /
+21:09:38 [32mGET[39m /styles.css
+21:09:38 [32mGET[39m /favicon.ico
+21:09:58 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+21:19:26 [32mGET[39m /
+21:19:26 [32mGET[39m /styles.css
+21:19:26 [32mGET[39m /favicon.ico
+21:19:39 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+21:22:15 [32mGET[39m /
+21:22:15 [32mGET[39m /styles.css
+21:22:16 [32mGET[39m /favicon.ico
+21:22:38 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+21:28:32 [32mGET[39m /
+21:28:33 [32mGET[39m /styles.css
+21:28:33 [32mGET[39m /favicon.ico
+21:28:47 [33mPOST[39m /login
+####################
+Database connection  
+####################
+Server enviorment local
+21:33:44 [32mGET[39m /
+21:33:44 [32mGET[39m /styles.css
+21:33:44 [32mGET[39m /favicon.ico
+21:34:01 [33mPOST[39m /login
+####################
+Server enviorment local
+####################
+Database connection  
+21:44:15 [32mGET[39m /
+21:44:15 [32mGET[39m /styles.css
+21:44:16 [32mGET[39m /favicon.ico
+21:44:38 [33mPOST[39m /login
+####################
+Server enviorment local
+Database connection  
+####################
+21:50:45 [32mGET[39m /
+21:50:45 [32mGET[39m /styles.css
+21:50:45 [32mGET[39m /favicon.ico
+21:51:07 [33mPOST[39m /login
+21:51:31 [32mGET[39m /
+21:51:31 [32mGET[39m /styles.css
+21:51:31 [32mGET[39m /favicon.ico
+21:52:20 [33mPOST[39m /user
+21:52:41 [33mPOST[39m /login
+notFoundError: User not found
+21:52:47 [32mGET[39m /
+21:52:47 [32mGET[39m /styles.css
+21:52:47 [32mGET[39m /favicon.ico
+21:53:05 [33mPOST[39m /login
+21:53:16 [32mGET[39m /
+21:53:17 [32mGET[39m /styles.css
+21:53:17 [32mGET[39m /favicon.ico
+21:53:30 [33mPOST[39m /user
