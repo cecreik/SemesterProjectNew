@@ -115,24 +115,34 @@
             loginPage.classList.remove("hidden");
         }
 
-        loginSubmitButton.onclick = async function () { 
-            const loginEmail = document.getElementById("loginEmail").value;
-            const loginPassword = document.getElementById("loginPassword").value;
+        loginSubmitButton.addEventListener('click', async () => {
+    const loginEmail = document.getElementById("loginEmail").value;
+    const loginPassword = document.getElementById("loginPassword").value;
 
-            const response = await postTo("/login", { email: loginEmail, password: loginPassword });
+    // Validate if email and password are not empty
+    if (loginEmail.trim() === '' || loginPassword.trim() === '') {
+        alert('Please enter both email and password.');
+        return; // Exit the function if email or password is empty
+    }
 
-            if (response.ok) {
-                const userData = await response.json();
-                sessionStorage.setItem("user", JSON.stringify(userData.user));
-                registrationSection.classList.add("hidden");
-                loginPage.classList.add("hidden");
-                applicationPage.classList.remove("hidden");
-                loggedInUserName.textContent = userData.user.name;
-            } else {
-                alert('Login failed. Please check your credentials.');
-            }
+    try {
+        const response = await postTo("/login", { email: loginEmail, password: loginPassword });
+
+        if (response.ok) {
+            const userData = await response.json();
+            sessionStorage.setItem("user", JSON.stringify(userData.user));
+            registrationSection.classList.add("hidden");
+            loginPage.classList.add("hidden");
+            applicationPage.classList.remove("hidden");
+            loggedInUserName.textContent = userData.user.name;
+        } else {
+            alert('Login failed. Please check your credentials.');
         }
-
+    } catch (error) {
+        console.error('Login error:', error);
+        alert('An error occurred while logging in.');
+    }
+});
 
         settingsButton.onclick = function () {
             applicationPage.classList.add("hidden");

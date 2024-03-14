@@ -28,33 +28,43 @@ server.use(express.static('public'));
 server.use("/user",USER_API);
 // Login endpoint
 server.post('/login', async (req, res, next) => {
-    try {
-        const { email, password } = req.body;
-        console.log("before getUserByEmail");
-        // Fetch user from the database based on email
-        const user = await DBManager.getUserByEmail(email);
-        if (!user) {
-            // If user not found, send 404 error
-            const notFoundError = new Error('User not found');
-            notFoundError.name = 'notFoundError';
-            throw notFoundError;
-        }
-        console.log("DB pwd:" + user.password);
-        console.log("input pwd:" + password);
-        // Check if the password matches
-        if (user.password !== generateHash(password, process.env.SECRET)) {
-            // If password is incorrect, send 401 error
-            const authenticationError = new Error('Invalid password');
-            authenticationError.name = 'authenticationError';
-            throw authenticationError;
-        }
-        // If login is successful, send user data
-        res.json({ message: 'Login successful', user });
-    } catch (error) {
-        // Handle errors
-        next(error);
-    }
+  try {
+      const { email, password } = req.body;
+      
+      console.log("Received login request with email:", email);
+      
+      // Fetch user from the database based on email
+      const user = await DBManager.getUserByEmail(email);
+      
+      console.log("Retrieved user from the database:", user);
+      
+      if (!user) {
+          // If user not found, send 404 error
+          const notFoundError = new Error('User not found');
+          notFoundError.name = 'notFoundError';
+          throw notFoundError;
+      }
+
+      console.log("DB pwd:", user.password);
+      console.log("Input pwd:", password);
+      
+      // Check if the password matches
+      if (user.password !== generateHash(password, process.env.SECRET)) {
+          // If password is incorrect, send 401 error
+          const authenticationError = new Error('Invalid password');
+          authenticationError.name = 'authenticationError';
+          throw authenticationError;
+      }
+      
+      // If login is successful, send user data
+      res.json({ message: 'Login successful', user });
+  } catch (error) {
+      // Handle errors
+      console.error("Login error:", error);
+      next(error);
+  }
 });
+
 
 // Logout endpoint
 server.post('/logout', (req, res) => {
