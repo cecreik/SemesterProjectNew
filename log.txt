@@ -1492,3 +1492,81 @@ Database connection
 10:34:01 [32mGET[39m /favicon.ico
 10:34:11 [33mPOST[39m /login
 10:38:23 [33mPUT[39m /user/userupdate/30
+####################
+Server enviorment local
+Database connection  
+####################
+10:51:31 [32mGET[39m /
+10:51:31 [32mGET[39m /styles.css
+10:51:57 [33mPOST[39m /login
+11:07:02 [31mDELETE[39m /user/deleteUser/30
+####################
+Server enviorment local
+####################
+Database connection  
+11:15:49 [32mGET[39m /
+11:15:49 [32mGET[39m /styles.css
+11:15:50 [32mGET[39m /favicon.ico
+11:16:03 [33mPOST[39m /login
+11:16:07 [31mDELETE[39m /user/deleteUser/30
+11:17:08 [32mGET[39m /
+11:17:08 [32mGET[39m /styles.css
+11:17:19 [33mPOST[39m /login
+11:17:44 [33mPUT[39m /user/userupdate/30
+11:17:51 [32mGET[39m /
+11:17:51 [32mGET[39m /styles.css
+11:17:58 [33mPOST[39m /login
+authenticationError: Invalid password
+11:18:07 [33mPOST[39m /login
+authenticationError: Invalid password
+11:18:11 [32mGET[39m /
+11:18:11 [32mGET[39m /styles.css
+11:18:35 [33mPOST[39m /user
+11:19:14 [33mPOST[39m /login
+authenticationError: Invalid password
+11:19:17 [32mGET[39m /
+11:19:17 [32mGET[39m /styles.css
+11:19:17 [32mGET[39m /favicon.ico
+11:19:20 [32mGET[39m /
+11:19:20 [32mGET[39m /styles.css
+11:21:54 [33mPOST[39m /user
+####################
+Server enviorment local
+####################
+Database connection  
+11:33:45 [32mGET[39m /
+11:33:45 [32mGET[39m /styles.css
+11:34:01 [33mPOST[39m /user
+####################
+Server enviorment local
+####################
+Database connection  
+12:03:33 [32mGET[39m /
+12:03:33 [32mGET[39m /styles.css
+12:03:50 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:05:26 [32mGET[39m /
+12:05:27 [32mGET[39m /styles.css
+12:05:27 [32mGET[39m /favicon.ico
+12:06:38 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:09:37 [32mGET[39m /
+12:09:37 [32mGET[39m /styles.css
+12:09:38 [32mGET[39m /favicon.ico
+12:09:59 [33mPOST[39m /login
+authenticationError: Invalid password
+12:10:16 [33mPOST[39m /login
+authenticationError: Invalid password
+12:10:22 [33mPOST[39m /login
+authenticationError: Invalid password
+12:10:26 [33mPOST[39m /login
+authenticationError: Invalid password
+12:10:40 [33mPOST[39m /login
+authenticationError: Invalid password
+12:11:16 [33mPOST[39m /login

@@ -1,4 +1,3 @@
-// crypto.mjs
 import { createHmac } from 'node:crypto';
 
 export function generateHash(data) {

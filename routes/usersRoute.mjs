@@ -66,11 +66,7 @@ USER_API.put('/userupdate/:id', async (req, res) => {
     }
 });
 
-
-
-
-
-USER_API.delete('/user/:id', async (req, res) => {
+USER_API.delete('/deleteUser/:id', async (req, res) => {
     try {
         const userId = req.params.id;
         await DBManager.deleteUser(userId);
