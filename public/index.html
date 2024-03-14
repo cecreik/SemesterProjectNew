@@ -132,7 +132,7 @@
                 alert('Login failed. Please check your credentials.');
             }
         }
-        
+
 
         settingsButton.onclick = function () {
             applicationPage.classList.add("hidden");
@@ -173,7 +173,7 @@ updateUserInfoButton.addEventListener('click', async () => {
     const updatedUser = { name: newUsername, password: newPassword };
 
     try {
-        const response = await fetch(`/user/updateUser/${userId}`, {
+        const response = await fetch(`/user/userupdate/${userId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedUser)
@@ -194,7 +194,7 @@ deleteUserButton.onclick = async function () {
     const userData = JSON.parse(sessionStorage.getItem("user"));
     const userId = userData.id;
 
-    const response = await fetch(`/deleteUser/${userId}`, {
+    const response = await fetch(`/user/deleteUser/${userId}`, {
         method: "DELETE"
     });
 

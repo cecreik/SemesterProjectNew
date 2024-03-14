@@ -6,6 +6,8 @@ import printDeveloperStartupInportantInformationMSG from './modules/developerHel
 import DBManager from './modules/storageManager.mjs';
 import { generateHash } from './modules/crypto.mjs';
 
+import USER_API from './routes/usersRoute.mjs'
+
 printDeveloperStartupInportantInformationMSG();
 
 // Creating an instance of the server
@@ -23,6 +25,7 @@ server.use(express.json());
 // Defining a folder that will contain static files.
 server.use(express.static('public'));
 
+server.use("/user",USER_API);
 // Login endpoint
 server.post('/login', async (req, res, next) => {
     try {

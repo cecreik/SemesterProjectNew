@@ -52,19 +52,13 @@ USER_API.post('/', async (req, res, next) => {
     }
 });
 
-USER_API.put('/updateUser/:id', async (req, res) => {
+USER_API.put('/userupdate/:id', async (req, res) => {
     const userId = req.params.id;
-   // const {name, password} = req.body;
-    const name = req.body.name
-    let password= req.body.password
-    const hashedPassword = generateHash(password, process.env.SECRET);
-    password =hashedPassword
-
+    const { name, password } = req.body; 
     try {
-        // Update user information in the database
-        const updatedUser = await DBManager.updateUser(userId, name, password);
+        const hashedPassword = generateHash(password, process.env.SECRET);
+        const updatedUser = await DBManager.updateUser(userId, name, hashedPassword);
 
-        // Respond with updated user data
         res.status(HTTPCodes.SuccessfullResponse.Ok).json(updatedUser);
     } catch (error) {
         console.error('Error updating user:', error);
@@ -75,7 +69,8 @@ USER_API.put('/updateUser/:id', async (req, res) => {
 
 
 
-USER_API.delete('/:id', async (req, res, next) => {
+
+USER_API.delete('/user/:id', async (req, res) => {
     try {
         const userId = req.params.id;
         await DBManager.deleteUser(userId);
