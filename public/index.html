@@ -148,6 +148,7 @@
         function getUserIdFromSession() {
             // Retrieve user ID from session storage
             const userData = JSON.parse(sessionStorage.getItem('user'));
+            console.log('user data from sessionstorage:', userData);
             return userData ? userData.id : null; // Assuming user object has an 'id' property
         }
 
@@ -166,29 +167,44 @@ logoutButton.addEventListener("click", function() {
 
 // Attach event listener to Update User Info button
 updateUserInfoButton.addEventListener('click', async () => {
+    // Get the new username and password from the input fields
     const newUsername = document.getElementById("newUsername").value;
     const newPassword = document.getElementById("newPassword").value;
 
-    const userId = getUserIdFromSession(); // Implement this function to get user ID
-    const updatedUser = { name: newUsername, password: newPassword };
+    // Get the user ID from session storage
+    const userId = getUserIdFromSession();
 
-    try {
-        const response = await fetch(`/user/userupdate/${userId}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updatedUser)
-        });
+    // Check if userId is null before updating user
+    if (userId) {
+        const updatedUser = { name: newUsername, password: newPassword };
 
-        if (response.ok) {
-            alert('User information updated successfully.');
-        } else {
-            throw new Error('Failed to update user information.');
+        try {
+            // Send a PUT request to update the user information
+            const response = await fetch(`/user/userupdate/${userId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedUser)
+            });
+
+            if (response.ok) {
+                // If the update was successful, show a success message
+                alert('User information updated successfully.');
+            } else {
+                // If the update failed, show an error message
+                throw new Error('Failed to update user information.');
+            }
+        } catch (error) {
+            // If an error occurs during the update process, log the error and show an error message
+            console.error('Update user info error:', error);
+            alert('Failed to update user information.');
         }
-    } catch (error) {
-        console.error('Update user info error:', error);
-        alert('Failed to update user information.');
+    } else {
+        // If userId is null, show an error message indicating that the user ID is missing
+        alert('User ID is missing. Please log in again.');
+        // You may want to redirect the user to the login page or take appropriate action
     }
 });
+
 
 deleteUserButton.onclick = async function () {
     // Retrieve user data from session storage

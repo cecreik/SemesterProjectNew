@@ -55,6 +55,10 @@ USER_API.post('/', async (req, res, next) => {
 USER_API.put('/userupdate/:id', async (req, res) => {
     const userId = req.params.id;
     const { name, password } = req.body; 
+    if (!userId) {
+        res.status(HTTPCodes.ClientSideErrorResponse.BadRequest).json({ error: 'User ID is missing' });
+        return;
+    }
     try {
         const hashedPassword = generateHash(password, process.env.SECRET);
         const updatedUser = await DBManager.updateUser(userId, name, hashedPassword);

@@ -1655,3 +1655,27 @@ Database connection
 13:09:32 [32mGET[39m /styles.css
 13:09:43 [33mPOST[39m /login
 13:09:45 [31mDELETE[39m /user/deleteUser/54
+####################
+Server enviorment local
+####################
+Database connection  
+13:32:31 [33mPOST[39m /user
+13:33:10 [33mPUT[39m /user/userupdate/null
+13:33:20 [32mGET[39m /
+####################
+####################
+Server enviorment local
+Database connection  
+13:42:23 [32mGET[39m /
+13:42:23 [32mGET[39m /styles.css
+13:42:48 [32mGET[39m /
+13:42:48 [32mGET[39m /styles.css
+13:42:48 [32mGET[39m /favicon.ico
+####################
+Server enviorment local
+####################
+Database connection  
+13:44:02 [32mGET[39m /
+13:44:02 [32mGET[39m /styles.css
+13:44:28 [33mPOST[39m /login
+13:44:39 [33mPUT[39m /user/userupdate/55
