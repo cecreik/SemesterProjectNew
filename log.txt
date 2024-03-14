@@ -1587,3 +1587,71 @@ Server enviorment local
 Database connection  
 ####################
 12:17:34 PM POST /user
+####################
+Server enviorment local
+Database connection  
+####################
+12:33:36 [32mGET[39m /
+12:33:37 [32mGET[39m /styles.css
+12:33:37 [32mGET[39m /favicon.ico
+12:33:57 [33mPOST[39m /user
+12:34:16 [32mGET[39m /
+####################
+Server enviorment local
+Database connection  
+####################
+12:40:27 [32mGET[39m /
+12:40:27 [32mGET[39m /styles.css
+12:40:27 [32mGET[39m /favicon.ico
+12:40:37 [33mPOST[39m /login
+12:40:45 [31mDELETE[39m /user/deleteUser/53
+####################
+Server enviorment local
+####################
+Database connection  
+12:47:34 [32mGET[39m /
+12:47:34 [32mGET[39m /styles.css
+12:47:34 [32mGET[39m /favicon.ico
+12:47:47 [33mPOST[39m /login
+12:47:54 [31mDELETE[39m /user/deleteUser/53
+####################
+Database connection  
+####################
+Server enviorment local
+12:51:58 [32mGET[39m /
+12:51:58 [32mGET[39m /styles.css
+12:51:58 [32mGET[39m /favicon.ico
+12:52:10 [33mPOST[39m /login
+12:52:15 [31mDELETE[39m /user/deleteUser/53
+####################
+Server enviorment local
+Database connection  
+####################
+13:04:23 [32mGET[39m /
+13:04:23 [32mGET[39m /styles.css
+13:04:23 [32mGET[39m /favicon.ico
+13:04:37 [33mPOST[39m /login
+notFoundError: User not found
+13:04:44 [33mPOST[39m /login
+notFoundError: User not found
+####################
+Server enviorment local
+####################
+Database connection  
+13:05:55 [32mGET[39m /
+13:05:55 [32mGET[39m /styles.css
+13:05:55 [32mGET[39m /favicon.ico
+13:06:09 [33mPOST[39m /login
+notFoundError: User not found
+13:06:45 [32mGET[39m /
+13:06:45 [32mGET[39m /styles.css
+13:06:45 [32mGET[39m /favicon.ico
+13:07:08 [33mPOST[39m /user
+####################
+Server enviorment local
+Database connection  
+####################
+13:09:32 [32mGET[39m /
+13:09:32 [32mGET[39m /styles.css
+13:09:43 [33mPOST[39m /login
+13:09:45 [31mDELETE[39m /user/deleteUser/54

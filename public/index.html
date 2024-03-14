@@ -191,24 +191,48 @@ updateUserInfoButton.addEventListener('click', async () => {
 });
 
 deleteUserButton.onclick = async function () {
-    const userData = JSON.parse(sessionStorage.getItem("user"));
+    // Retrieve user data from session storage
+    const userDataString = sessionStorage.getItem("user");
+    
+    // Check if userDataString is null
+    if (userDataString === null) {
+        alert("User data not found. Please log in.");
+        return; // Exit the function early if user data is not found
+    }
+    
+    // Parse user data from string to object
+    const userData = JSON.parse(userDataString);
+    
+    // Check if userData has the necessary properties
+    if (!userData || !userData.id) {
+        alert("Invalid user data. Please log in again.");
+        return; // Exit the function early if user data is invalid
+    }
+
     const userId = userData.id;
 
-    const response = await fetch(`/user/deleteUser/${userId}`, {
-        method: "DELETE"
-    });
+    try {
+        const response = await fetch(`/user/deleteUser/${userId}`, {
+    method: "DELETE"
+});
+ 
 
-    if (response.ok) {
-        // Clear sessionStorage and redirect to registration page
-        sessionStorage.removeItem("user");
-        applicationPage.classList.add("hidden");
-        settingsPage.classList.add("hidden");
-        registrationSection.classList.remove("hidden");
-        alert("User deleted successfully.");
-    } else {
-        alert("Failed to delete user.");
+        if (response.ok) {
+            // Clear sessionStorage and redirect to registration page
+            sessionStorage.removeItem("user");
+            applicationPage.classList.add("hidden");
+            settingsPage.classList.add("hidden");
+            registrationSection.classList.remove("hidden");
+            alert("User deleted successfully.");
+        } else {
+            alert("Failed to delete user.");
+        }
+    } catch (error) {
+        console.error("Delete user error:", error);
+        alert("An error occurred while deleting the user.");
     }
 }
+
 
         backToApplicationButton.onclick = function () {
             settingsPage.classList.add("hidden");

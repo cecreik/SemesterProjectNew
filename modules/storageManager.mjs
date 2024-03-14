@@ -38,32 +38,24 @@ class DBManager {
         }
     }
     
-    async deleteUser(user) {
-
+    async deleteUser(userId) {
         const client = new pg.Client(this.#credentials);
-
         try {
             await client.connect();
-            const output = await client.query('Delete from "public"."Users"  where id = $1;', [user.id]);
-
-            if (output.rowCount === 1){
-                console.log(`User ${user.id} deleted`);
-            }else{
-                console.log(`User ${user.id} does not exist`);
+            const output = await client.query('DELETE FROM "public"."Users" WHERE id = $1', [userId]);
+            if (output.rowCount === 1) {
+                console.log(`User ${userId} deleted`);
+            } else {
+                console.log(`User ${userId} does not exist`);
             }
-
-            // Client.Query returns an object of type pg.Result (https://node-postgres.com/apis/result)
-            // Of special intrest is the rows and rowCount properties of this object.
-
-
         } catch (error) {
-
+            console.error('Error deleting user:', error);
+            throw error;
         } finally {
             client.end(); // Always disconnect from the database.
         }
-
-        return user;
     }
+     
 
     async createUser(user) {
 

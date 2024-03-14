@@ -66,16 +66,20 @@ USER_API.put('/userupdate/:id', async (req, res) => {
     }
 });
 
+// In usersRoute.mjs
 USER_API.delete('/deleteUser/:id', async (req, res) => {
     try {
         const userId = req.params.id;
+        console.log(`Attempting to delete user with ID ${userId}`);
         await DBManager.deleteUser(userId);
+        console.log(`User with ID ${userId} deleted successfully`);
         res.status(HTTPCodes.SuccessfullResponse.Ok).json({ message: 'User deleted successfully' });
     } catch (error) {
         console.error('Error deleting user:', error);
         res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
     }
 });
+
 
 USER_API.use((err, req, res, next) => {
     console.error(err);
@@ -88,3 +92,4 @@ USER_API.use((err, req, res, next) => {
 });
 
 export default USER_API;
+
