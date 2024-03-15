@@ -70,7 +70,6 @@ USER_API.put('/userupdate/:id', async (req, res) => {
     }
 });
 
-// In usersRoute.mjs
 USER_API.delete('/deleteUser/:id', async (req, res) => {
     try {
         const userId = req.params.id;
@@ -83,7 +82,6 @@ USER_API.delete('/deleteUser/:id', async (req, res) => {
         res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
     }
 });
-
 
 USER_API.use((err, req, res, next) => {
     console.error(err);

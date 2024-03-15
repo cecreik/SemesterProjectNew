@@ -5,7 +5,6 @@ export function generateHash(data) {
     if (!secret) {
         throw new Error('Secret is not defined in environment variables');
     }
-
     const hash = createHmac('sha256', secret)
                    .update(data)
                    .digest('hex');

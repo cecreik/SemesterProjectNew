@@ -73,7 +73,6 @@
         const updateUserInfoButton = document.getElementById("updateUserInfoButton");
         const deleteUserButton = document.getElementById("deleteUserButton");
 
-
         const loggedInUserName = document.getElementById("loggedInUserName");
         const backToRegistrationButton = document.getElementById("backToRegistrationButton");
 
@@ -81,7 +80,6 @@
         const loginPage = document.getElementById("loginPage");
         const loginSubmitButton = document.getElementById("loginSubmitButton");
 
-        // Initialize Google Translate element
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
         }
@@ -121,162 +119,119 @@
         shareResultButton.addEventListener("click", function() {
             const percentage = (visitedCountries / totalCountries) * 100;
             const message = `Look! I have visited ${visitedCountries} out of ${totalCountries} countries, which is ${percentage.toFixed(2)}% of the world! Check your stats with TravelTracker!`;
-
-            // Display a popup with the result
             alert(message);
         });
 
         loginSubmitButton.addEventListener('click', async () => {
-    const loginEmail = document.getElementById("loginEmail").value;
-    const loginPassword = document.getElementById("loginPassword").value;
+            const loginEmail = document.getElementById("loginEmail").value;
+            const loginPassword = document.getElementById("loginPassword").value;
+            if (loginEmail.trim() === '' || loginPassword.trim() === '') {
+                alert('Please enter both email and password.');
+                return; 
+            }
+            try {
+                const response = await postTo("/login", { email: loginEmail, password: loginPassword });
 
-    // Validate if email and password are not empty
-    if (loginEmail.trim() === '' || loginPassword.trim() === '') {
-        alert('Please enter both email and password.');
-        return; // Exit the function if email or password is empty
-    }
-
-    try {
-        const response = await postTo("/login", { email: loginEmail, password: loginPassword });
-
-        if (response.ok) {
-            const userData = await response.json();
-            sessionStorage.setItem("user", JSON.stringify(userData.user));
-            registrationSection.classList.add("hidden");
-            loginPage.classList.add("hidden");
-            applicationPage.classList.remove("hidden");
-            loggedInUserName.textContent = userData.user.name;
-        } else {
-            alert('Login failed. Please check your credentials.');
-        }
-    } catch (error) {
-        console.error('Login error:', error);
-        alert('An error occurred while logging in.');
-    }
-});
+                if (response.ok) {
+                    const userData = await response.json();
+                    sessionStorage.setItem("user", JSON.stringify(userData.user));
+                    registrationSection.classList.add("hidden");
+                    loginPage.classList.add("hidden");
+                    applicationPage.classList.remove("hidden");
+                    loggedInUserName.textContent = userData.user.name;
+                } else {
+                    alert('Login failed. Please check your credentials.');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alert('An error occurred while logging in.');
+            }
+        });
 
         settingsButton.onclick = function () {
             applicationPage.classList.add("hidden");
             settingsPage.classList.remove("hidden");
 
-                    // Populate input fields with current user information
             const userData = JSON.parse(sessionStorage.getItem("user"));
             document.getElementById("newUsername").value = userData.name;
-            // You might not want to display password in the input field
-            // document.getElementById("newPassword").value = ""; 
         }
 
         function getUserIdFromSession() {
-            // Retrieve user ID from session storage
             const userData = JSON.parse(sessionStorage.getItem('user'));
             console.log('user data from sessionstorage:', userData);
-            return userData ? userData.id : null; // Assuming user object has an 'id' property
+            return userData ? userData.id : null; 
         }
 
-// Add event listener to the logout button
-logoutButton.addEventListener("click", function() {
-    // Perform logout actions here
-    // For example, clear session storage and redirect to the registration page
-    sessionStorage.removeItem("user");
-    // You may also want to clear any other stored data or perform additional cleanup
-    // Redirect the user to the registration page or any other appropriate page
-    applicationPage.classList.add("hidden");
-    settingsPage.classList.add("hidden");
-    registrationSection.classList.remove("hidden");
-});
-
-
-// Attach event listener to Update User Info button
-updateUserInfoButton.addEventListener('click', async () => {
-    // Get the new username and password from the input fields
-    const newUsername = document.getElementById("newUsername").value;
-    const newPassword = document.getElementById("newPassword").value;
-
-    // Get the user ID from session storage
-    const userId = getUserIdFromSession();
-
-    // Check if userId is null before updating user
-    if (userId) {
-        const updatedUser = { name: newUsername, password: newPassword };
-
-        try {
-            // Send a PUT request to update the user information
-            const response = await fetch(`/user/userupdate/${userId}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(updatedUser)
-            });
-
-            if (response.ok) {
-                // If the update was successful, show a success message
-                alert('User information updated successfully.');
-            } else {
-                // If the update failed, show an error message
-                throw new Error('Failed to update user information.');
-            }
-        } catch (error) {
-            // If an error occurs during the update process, log the error and show an error message
-            console.error('Update user info error:', error);
-            alert('Failed to update user information.');
-        }
-    } else {
-        // If userId is null, show an error message indicating that the user ID is missing
-        alert('User ID is missing. Please log in again.');
-        // You may want to redirect the user to the login page or take appropriate action
-    }
-});
-
-
-deleteUserButton.onclick = async function () {
-    // Retrieve user data from session storage
-    const userDataString = sessionStorage.getItem("user");
-    
-    // Check if userDataString is null
-    if (userDataString === null) {
-        alert("User data not found. Please log in.");
-        return; // Exit the function early if user data is not found
-    }
-    
-    // Parse user data from string to object
-    const userData = JSON.parse(userDataString);
-    
-    // Check if userData has the necessary properties
-    if (!userData || !userData.id) {
-        alert("Invalid user data. Please log in again.");
-        return; // Exit the function early if user data is invalid
-    }
-
-    const userId = userData.id;
-
-    try {
-        const response = await fetch(`/user/deleteUser/${userId}`, {
-    method: "DELETE"
-});
- 
-
-        if (response.ok) {
-            // Clear sessionStorage and redirect to registration page
+        logoutButton.addEventListener("click", function() {
             sessionStorage.removeItem("user");
             applicationPage.classList.add("hidden");
             settingsPage.classList.add("hidden");
             registrationSection.classList.remove("hidden");
-            alert("User deleted successfully.");
-        } else {
-            alert("Failed to delete user.");
+        });
+
+        updateUserInfoButton.addEventListener('click', async () => {
+            const newUsername = document.getElementById("newUsername").value;
+            const newPassword = document.getElementById("newPassword").value;
+            const userId = getUserIdFromSession();
+            if (userId) {
+                const updatedUser = { name: newUsername, password: newPassword };
+                try {
+                    const response = await fetch(`/user/userupdate/${userId}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(updatedUser)
+                    });
+
+                    if (response.ok) {
+                        alert('User information updated successfully.');
+                    } else {
+                        throw new Error('Failed to update user information.');
+                    }
+                } catch (error) {
+                    console.error('Update user info error:', error);
+                    alert('Failed to update user information.');
+                }
+            } else {
+                alert('User ID is missing. Please log in again.');
+            }
+        });
+
+        deleteUserButton.onclick = async function () {
+            const userDataString = sessionStorage.getItem("user");
+            if (userDataString === null) {
+                alert("User data not found. Please log in.");
+                return; 
+            }
+            const userData = JSON.parse(userDataString);
+            if (!userData || !userData.id) {
+                alert("Invalid user data. Please log in again.");
+                return; 
+            }
+            const userId = userData.id;
+            try {
+                const response = await fetch(`/user/deleteUser/${userId}`, {
+            method: "DELETE"
+        });
+            if (response.ok) {
+                sessionStorage.removeItem("user");
+                applicationPage.classList.add("hidden");
+                settingsPage.classList.add("hidden");
+                registrationSection.classList.remove("hidden");
+                alert("User deleted successfully.");
+            } else {
+                    alert("Failed to delete user.");
+                }
+            } catch (error) {
+                console.error("Delete user error:", error);
+                alert("An error occurred while deleting the user.");
+            }
         }
-    } catch (error) {
-        console.error("Delete user error:", error);
-        alert("An error occurred while deleting the user.");
-    }
-}
 
 
         backToApplicationButton.onclick = function () {
             settingsPage.classList.add("hidden");
             applicationPage.classList.remove("hidden");
         }
-
-
         async function postTo(url, data) {
             const header = {
                 method: "POST",

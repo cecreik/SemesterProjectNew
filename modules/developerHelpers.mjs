@@ -16,7 +16,6 @@ export default function printDeveloperStartupInportantInformationMSG() {
     if (process.argv.length > 2) {
         if (process.argv[2] == "--setup") {
             SuperLogger.log(chalk.red("Runing setup for database"), SuperLogger.LOGGING_LEVELS.CRTICAL);
-            // TODO: Code that would set up our database with tbls etc..
         }
     }
 
