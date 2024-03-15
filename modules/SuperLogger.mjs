@@ -79,9 +79,9 @@ class SuperLogger {
     }
 
     #writeToLog(msg) {
-        const currentDate = new Date().toISOString().split('T')[0]; // Get current date
-        const logMessage = `[${currentDate}] ${msg}\n`; // Append date to message
-        console.log(logMessage); // Log to console
+        const currentDate = new Date().toISOString().split('T')[0]; 
+        const logMessage = `[${currentDate}] ${msg}\n`; 
+        console.log(logMessage); 
     
         fs.appendFile("./log.txt", logMessage, { encoding: "utf8" }, (err) => {
             if (err) {
