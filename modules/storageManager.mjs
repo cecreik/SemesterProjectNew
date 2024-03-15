@@ -1,6 +1,4 @@
 import pg from "pg"
-import SuperLogger from "./SuperLogger.mjs";
-
 
 class DBManager {
 
