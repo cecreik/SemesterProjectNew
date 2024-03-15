@@ -45,12 +45,12 @@ USER_API.post('/', async (req, res, next) => {
         
         const hashedPassword = generateHash(password, process.env.SECRET);
         
-        const newUser = new User(); // Create a new instance of User
+        const newUser = new User(); 
         newUser.name = name;
         newUser.email = email;
         newUser.password = hashedPassword;
         
-        await newUser.save(); // Save the new user
+        await newUser.save(); 
         res.status(HTTPCodes.SuccessfullResponse.Ok).json(newUser);
     } catch (error) {
         console.error('Error creating user:', error);
