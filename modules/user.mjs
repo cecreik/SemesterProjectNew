@@ -25,7 +25,6 @@ async update() {
     }
 }
 
-
 async delete() {
     try {
         return await DBManager.deleteUser(this);
@@ -34,7 +33,6 @@ async delete() {
         throw error;
     }
 }
-
 
   async getUserByEmail(email) {
     try {

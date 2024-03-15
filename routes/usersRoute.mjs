@@ -12,6 +12,7 @@ USER_API.get('/users', async (req, res, next) => {
     try {
         const users = await DBManager.getAllUsers();
         res.status(HTTPCodes.SuccessfullResponse.Ok).json(users);
+        SuperLogger.log('GET /users', SuperLogger.LOGGING_LEVELS.NORMAL);
     } catch (error) {
         console.error('Error retrieving all users:', error);
         res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
@@ -27,6 +28,7 @@ USER_API.get('/:id', async (req, res, next) => {
         } else {
             res.status(HTTPCodes.SuccessfullResponse.Ok).json(user);
         }
+        SuperLogger.log(`GET /${userId}`, SuperLogger.LOGGING_LEVELS.NORMAL);
     } catch (error) {
         console.error('Error retrieving user by ID:', error);
         res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
@@ -42,10 +44,14 @@ USER_API.post('/', async (req, res, next) => {
         }
         
         const hashedPassword = generateHash(password, process.env.SECRET);
-        const newUser = { name, email, password: hashedPassword };
         
-        const user = await DBManager.createUser(newUser);
-        res.status(HTTPCodes.SuccessfullResponse.Ok).json(user);
+        const newUser = new User(); // Create a new instance of User
+        newUser.name = name;
+        newUser.email = email;
+        newUser.password = hashedPassword;
+        
+        await newUser.save(); // Save the new user
+        res.status(HTTPCodes.SuccessfullResponse.Ok).json(newUser);
     } catch (error) {
         console.error('Error creating user:', error);
         res.status(HTTPCodes.ServerErrorResponse.InternalError).json({ error: 'Internal server error' });
