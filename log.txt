@@ -2010,3 +2010,7 @@ Database connection
 [2024-03-15] 11:11:37 [32mGET[39m /styles.css
 [2024-03-15] 11:11:37 [32mGET[39m /favicon.ico
 [2024-03-15] 11:11:47 [33mPOST[39m /login
+[2024-03-15] ####################
+[2024-03-15] Server enviorment local
+[2024-03-15] Database connection  
+[2024-03-15] ####################
